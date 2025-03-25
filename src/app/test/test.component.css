@@ -1,0 +1,84 @@
+/* ---------- 1. Default Theme (Label Above Input) ---------- */
+.form-theme.default {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-theme.default label {
+    margin-bottom: 5px;
+    position: static;
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  
+  /* ---------- 2. Floating Label Theme ---------- */
+  .form-theme.form-floating {
+    position: relative;
+  }
+  
+  .form-theme.form-floating input {
+    height: 3rem;            /* Fixed height for vertical centering */
+    padding: 0 12px;         /* Horizontal padding */
+    line-height: 3rem;       /* Text vertically centered */
+    font-size: 1rem;
+    border: 1px solid #ced4da; /* Standard input border */
+    border-radius: 0.25rem;
+  }
+  
+  .form-theme.form-floating label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease-in-out;
+    background: transparent;
+    padding: 0 5px;
+    font-size: 1rem;
+    color: #6c757d;
+    pointer-events: none;    /* Allow clicks to reach input */
+  }
+  
+  /* When focused or not empty (requires placeholder=" " on input) */
+  .form-theme.form-floating input:focus + label,
+  .form-theme.form-floating input:not(:placeholder-shown) + label {
+    top: 0.3rem;             /* Moves label upward a bit (below border) */
+    transform: translateY(0);
+    font-size: 0.85rem;       /* Slightly smaller */
+    color: #495057;
+  }
+  
+  /* ---------- 3. Floating Label Border Theme ---------- */
+  .form-theme.form-floating-border {
+    position: relative;
+  }
+  
+  .form-theme.form-floating-border input {
+    height: 3rem;
+    padding: 0 12px;
+    line-height: 3rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+  }
+  
+  .form-theme.form-floating-border label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease-in-out;
+    background: white;       /* White background for badge effect */
+    padding: 0 5px;
+    font-size: 1rem;
+    color: #6c757d;
+    pointer-events: none;
+  }
+  
+  .form-theme.form-floating-border input:focus + label,
+  .form-theme.form-floating-border input:not(:placeholder-shown) + label {
+    top: 0.3rem;
+    transform: translateY(0);
+    font-size: 0.85rem;
+    color: #007bff;
+  }
+  

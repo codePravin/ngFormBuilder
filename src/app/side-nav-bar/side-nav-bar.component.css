@@ -1,0 +1,53 @@
+.accordian-wrapper {
+    margin-top: 75px;
+}
+
+.accordion-header {
+    background-color: var(--sideNav-bg);
+}
+
+.accordion-button {
+    background-color: var(--sideNav-bg) !important;
+    color: white !important;
+    padding: 1rem;
+    font-size: 16px;
+}
+
+.accordion-button::after {
+    display: none; /* Remove default Bootstrap icon */
+}
+
+.accordion-body {
+    background-color: var(--sideNav-accordion-body-bg);
+    padding: 1rem;
+}
+
+.accordion-icon {
+    transition: transform 0.3s ease;
+}
+
+.accordion-button.collapsed .accordion-icon {
+    transform: rotate(0deg);
+}
+
+.accordion-button:not(.collapsed) .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+}
+
+.body-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

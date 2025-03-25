@@ -1,0 +1,201 @@
+<!-- Tooltip at top right outside input field: -->
+<!-- <div class="input-container tooltip-top-right">
+  <label for="input-field">Your Label</label>
+  <div class="input-wrapper">
+    <input type="text" id="input-field" placeholder="Enter something..." />
+    <span class="input-icon-inside"><img style="width: 30px; height: 30px;" src="assets/images/angle-down-svgrepo-com.svg" alt=""></span>
+    <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+  </div>
+</div> -->
+
+<!-- Tooltip at top left: -->
+<!-- <div class="input-container tooltip-top-left-before-label">
+  <label for="input-field">Your Label</label>
+  <div class="input-wrapper">
+    <input type="text" id="input-field" placeholder="Enter something..." />
+    <span class="input-icon-inside"><img style="width: 30px; height: 30px;" src="assets/images/angle-down-svgrepo-com.svg" alt=""></span>
+    <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+  </div>
+</div> -->
+
+<!-- Tooltip at top left: -->
+<!-- <div class="input-container tooltip-at-top-left-after-label">
+    <label for="input-field">Your Label</label>
+    <div class="input-wrapper">
+      <input type="text" id="input-field" placeholder="Enter something..." />
+      <span class="input-icon-inside"><img style="width: 30px; height: 30px;" src="assets/images/angle-down-svgrepo-com.svg" alt=""></span>
+      <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+    </div>
+  </div> -->
+
+<!-- Tooltip after the label, before the input field: -->
+<!-- <div class="input-container tooltip-at-right">
+  <label for="input-field">Your Label</label>
+  <div class="input-wrapper">
+    <input type="text" id="input-field" placeholder="Enter something..." />
+    <span class="input-icon-inside"><img style="width: 30px; height: 30px;" src="assets/images/angle-down-svgrepo-com.svg" alt=""></span>
+    <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+  </div>
+</div> -->
+
+<!-- Tooltip inside the input field at the right end: -->
+<!-- <div class="input-container">
+  <label for="input-field">Your Label</label>
+  <div class="input-wrapper">
+    <input type="text" id="input-field" placeholder="Enter something..." />
+    <span class="input-icon-inside"><img style="width: 30px; height: 30px;" src="assets/images/angle-down-svgrepo-com.svg" alt=""></span>
+    <span class="tooltip-icon d-none" data-tooltip="This is a tooltip">?</span>
+  </div>
+</div> -->
+
+<div class="default-theme">
+  <div class="input-container tooltip-at-right has-icon-inside">
+    <div class="input-wrapper">
+      <input type="text" id="input-field" placeholder="Enter something..." />
+      <span class="input-icon-inside">
+        <img style="width: 30px; height: 30px" src="assets/images/angle-down-svgrepo-com.svg" alt="" />
+      </span>
+      <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+      <label for="input-field">Your Label</label>
+    </div>
+  </div>
+</div>
+
+<div class="floating-label-theme">
+  <div class="input-container has-icon-inside tooltip-at-right">
+    <div class="input-wrapper">
+      <input class="theme-input" type="file" id="input-field" placeholder=" " />
+      <span class="input-icon-inside">
+        <img style="width: 30px; height: 30px" src="assets/images/angle-down-svgrepo-com.svg" alt="" />
+      </span>
+      <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+      <label for="input-field">Your Label</label>
+    </div>
+  </div>
+</div>
+
+
+<div class="floating-label-theme">
+  <div class="input-container has-icon-inside tooltip-at-right">
+    <div class="input-wrapper">
+      <input class="theme-input" id="input-field" type="text" name="datetimes" value="10/24/1984" />
+      <span class="input-icon-inside">
+        <img style="width: 30px; height: 30px" src="assets/images/angle-down-svgrepo-com.svg" alt="" />
+      </span>
+      <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+      <label for="weekInput" class="theme-label">Date Range Picker</label>
+    </div>
+  </div>
+</div>
+
+<div class="floating-label-theme">
+  <div class="input-container has-icon-inside tooltip-at-right">
+    <div class="input-wrapper">
+      <input class="theme-input" id="datetimepicker" type="text" value="10/24/1984" />
+      <span class="input-icon-inside">
+        <img style="width: 30px; height: 30px" src="assets/images/angle-down-svgrepo-com.svg" alt="" />
+      </span>
+      <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+      <label for="weekInput" class="theme-label">Date time Picker</label>
+    </div>
+  </div>
+</div>
+
+
+<div class="floating-label-theme">
+  <div class="input-container has-icon-inside tooltip-at-right">
+    <div class="input-wrapper">
+      <div id="ng-select-theme" style="width: 100%;">
+        <ng-select class="ng-select" [items]="cars" bindLabel="name" bindValue="id" [clearable]="true"
+          placeholder="Select an Option" [(ngModel)]="selectedCar" [ngModelOptions]="{ standalone: true }">
+
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            <div class="custom-option">
+              <span class="item-label">{{ item.name }}</span>
+              <span *ngIf="selectedCar === item.id" class="check-icon">&#10003;</span>
+            </div>
+          </ng-template>
+        </ng-select>
+        <label class="theme-label">Select preferred language</label>
+        <span class="input-icon-inside">
+          <img style="width: 30px; height: 30px" src="assets/images/angle-down-svgrepo-com.svg" alt="" />
+        </span>
+        <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="floating-label-theme">
+  <div class="input-container has-icon-inside tooltip-at-right">
+    <div class="input-wrapper">
+      <!-- <textarea id="textareaInput" class="theme-input" placeholder=" " rows="3"></textarea> -->
+      <textarea class="theme-input" placeholder="" rows="2"></textarea>
+      <label for="weekInput" class="theme-label">Text area</label>
+      <span class="input-icon-inside">
+        <img style="width: 30px; height: 30px" src="assets/images/angle-down-svgrepo-com.svg" alt="" />
+      </span>
+      <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+    </div>
+  </div>
+</div>
+
+<div class="floating-label-theme">
+  <div class="input-container has-icon-inside tooltip-at-right">
+    <div class="input-wrapper">
+      <input type="file" class="theme-input" placeholder="" />
+      <span class="input-icon-inside">
+        <img style="width: 30px; height: 30px" src="assets/images/angle-down-svgrepo-com.svg" alt="" />
+      </span>
+      <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+      <label for="weekInput" class="theme-label">File Input</label>
+    </div>
+  </div>
+</div>
+
+<div class="floating-label-theme">
+  <div class="input-container has-icon-inside tooltip-at-right">
+    <div class="input-wrapper">
+      <input class="theme-input" type="file" placeholder=" " />
+      <span class="input-icon-inside">
+        <img style="width: 30px; height: 30px" src="assets/images/angle-down-svgrepo-com.svg" alt="" />
+      </span>
+      <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+      <label for="input-field" class="theme-label">Your Label</label>
+    </div>
+  </div>
+</div>
+
+
+<div class="floating-label-theme">
+  <div class="input-container has-icon-inside tooltip-at-right">
+    <div class="input-wrapper">
+      <select id="input-field" class="theme-input">
+        <option selected>Open this select menu</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select>
+      <span class="input-icon-inside">
+        <img style="width: 30px; height: 30px" src="assets/images/angle-down-svgrepo-com.svg" alt="" />
+      </span>
+      <span class="tooltip-icon" data-tooltip="This is a tooltip">?</span>
+      <label for="weekInput" class="theme-label">File Input</label>
+    </div>
+  </div>
+</div>
+
+<div class="inner-floating-theme">
+  <div class="input-container has-icon-inside tooltip-at-right">
+    <div class="input-wrapper">
+      <div id="multiselect-theme" class="parent-padding field-container" style="position: relative">
+        <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [settings]="dropdownSettings"
+          [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)" [ngModelOptions]="{ standalone: true }">
+        </ng-multiselect-dropdown>
+        <!-- Use your label style – you can either use the existing class or switch to .theme-label if desired -->
+        <!-- <div class="multiselect-label">Multiselect</div> -->
+        <label class="theme-label">Multiselect</label>
+      </div>
+    </div>
+  </div>

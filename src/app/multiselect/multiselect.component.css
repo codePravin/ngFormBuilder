@@ -1,0 +1,538 @@
+#multiselect-wrapper{
+  position: relative;
+  width: 300px;
+  margin-left: 100px;
+  margin-top: 100px;
+  height: 50px;
+}
+#multiselect-wrapper .multiselect-label{
+  position: absolute;
+  top: -14px;
+  left: 8px;
+  background-color: #ffffff;
+  padding: 0 5px;
+}
+
+
+
+
+
+
+
+
+style.css
+/* -------- Global Form Element Rules -------- */
+.theme-input,
+.parent-padding ng-select.ng-select-single .ng-select-container,
+.parent-padding #multiselect-theme ng-multiselect-dropdown {
+  height: 3rem; /* Global minimum height for all form elements */
+}
+
+/* The .parent-padding class applies padding to all .theme-input elements within its container */
+.parent-padding .theme-input,
+.parent-padding ng-select.ng-select-single .ng-select-container,
+#multiselect-theme .multiselect-dropdown .dropdown-btn {
+  padding: 12px 10px !important; /* Adjust as needed */
+}
+
+/* -------- Default Theme (Parent class: .default-theme) -------- */
+/* input field wrapper style */
+.default-theme .field-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* input field style*/
+.default-theme .theme-input {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: static;
+  background-color: #fff;
+}
+
+/* input field label style*/
+.default-theme .theme-label {
+  margin-bottom: 0px;
+  font-weight: 600;
+  color: #8a8585;
+  position: static; /* Normal document flow */
+  transform: none;
+  transition: none;
+}
+
+/* input field when focus(clicked) style*/
+.default-theme .theme-input:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #007bff;
+}
+
+/* input field with autofill style*/
+.default-theme .theme-input:-webkit-autofill {
+  background-color: transparent !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+/* -------- Floating Theme (Parent class: .floating-theme) -------- */
+/* input field wrapper style */
+.floating-theme .field-container {
+  width: 100%;
+  position: relative;
+  display: block;
+}
+
+/* input field style*/
+.floating-theme .theme-input {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: #fff;
+}
+
+/* input field when focus(clicked) style*/
+.floating-theme .theme-input:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #007bff;
+}
+
+/* input field with autofill style*/
+.floating-theme .theme-input:-webkit-autofill {
+  background-color: transparent !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+/* input field label style*/
+.floating-theme .theme-label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  transition: all 0.2s ease-out;
+  pointer-events: none;
+  color: #6c757d;
+  background-color: transparent;
+}
+
+/* Move label upward when input is focused or has content */
+.floating-theme .theme-input:focus + .theme-label,
+.floating-theme .theme-input:not(:placeholder-shown) + .theme-label {
+  transform: translateY(-190%); /* ************ THis needs to be changed every time top and bottom padding is changed  ********************** */
+  font-size: 12px;
+  color: #007bff;
+  background-color: #ffffff;
+  padding: 0 5px;
+}
+
+/* Textarea label upward when input is focused or has content */
+.floating-theme .theme-input:focus + #textarea-theme-label,
+.floating-theme .theme-input:not(:placeholder-shown) + #textarea-theme-label {
+  transform: translateY(-336%); /* ************ THis needs to be changed every time top and bottom padding is changed  ********************** */
+}
+
+/* Multiselect label upward when input is focused or has content */
+.floating-theme .theme-input:focus + #multiselect-theme-label,
+.floating-theme .theme-input:not(:placeholder-shown) + #multiselect-theme-label {
+  transform: translateY(-336%); /* ************ THis needs to be changed every time top and bottom padding is changed  ********************** */
+}
+
+/* -------- Always Floating Theme (Parent class: .always-floating-theme) -------- */
+/* input field wrapper style */
+.always-floating-theme .field-container {
+  width: 100%;
+  position: relative;
+  display: block;
+}
+
+/* input field style*/
+.always-floating-theme .theme-input {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: #fff;
+}
+
+/* input field label style (floating from the start) */
+.always-floating-theme .theme-label {
+  position: absolute;
+  top: -12px;  /* Adjust top to place the label above the input */
+  left: 10px;
+  font-size: 12px;  /* Smaller font size for the floating label */
+  color: #007bff;
+  background-color: #fff;
+  padding: 0 5px;
+  transition: none;  /* No transition needed, it's always in the floating position */
+}
+
+/* Always floating, no need for focus or content check */
+.always-floating-theme .theme-input:focus + .theme-label,
+.always-floating-theme .theme-input:not(:placeholder-shown) + .theme-label {
+  /* No need to change since label is already floating */
+  font-size: 12px;  /* Same size as default floating state */
+  color: #007bff;  /* Blue color for the floating label */
+  background-color: #fff;
+}
+
+/* -------- Inside Floating Theme (Parent class: .inside-floating-theme) start-------- */
+/* input field wrapper style */
+.inside-floating-theme .field-container {
+  width: 100%;
+  position: relative;
+  display: block;
+}
+
+/* input field style*/
+.inside-floating-theme .theme-input {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+/* input field when focus(clicked) style*/
+.inside-floating-theme .theme-input:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #007bff;
+}
+
+/* input field with autofill style*/
+.inside-floating-theme .theme-input:-webkit-autofill {
+  background-color: transparent !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+/* input field label style*/
+.inside-floating-theme .theme-label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  transition: all 0.2s ease-out;
+  pointer-events: none;
+  color: #6c757d;
+  background-color: transparent;
+  /* font-size: 16px; */
+}
+
+/* On focus or when content is entered, move label upward but keep it inside the input */
+.inside-floating-theme .theme-input:focus + .theme-label,
+.inside-floating-theme .theme-input:not(:placeholder-shown) + .theme-label {
+  top: 1px;
+  transform: none;
+  font-size: 12px;
+  color: #007bff;
+}
+
+/* -------- NG-Select Specific Styles (using #ng-select-theme) -------- */
+#ng-select-theme ng-select {
+  position: relative !important;
+  width: 100%;
+  border: none;
+}
+
+#ng-select-theme ng-select.ng-select-single .ng-select-container {
+  /* height: 40px !important; */
+  border-radius: 0.375rem !important;
+  /* border: 1px solid rgb(0, 0, 0); */
+}
+
+#ng-select-theme .ng-select.ng-select-opened .ng-select-container {
+  z-index: 1 !important;
+}
+
+#ng-select-theme ng-select .ng-arrow-wrapper .ng-arrow {
+  border-color: none !important;
+  border-style: none !important;
+  border-width: none !important;
+}
+
+#ng-select-theme ng-select .ng-arrow-wrapper .ng-arrow::before {
+  content: "+";
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+#ng-select-theme ng-select.ng-select-opened > .ng-select-container .ng-arrow {
+  top: 0 !important;
+  border-color: none !important;
+  border-width: none !important;
+}
+
+#ng-select-theme
+  ng-select.ng-select-opened
+  > .ng-select-container
+  .ng-arrow::before {
+  content: "-";
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+#ng-select-theme ng-select .ng-clear-wrapper .ng-clear {
+  display: none !important;
+  font-size: 18px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+#ng-select-theme ng-select .ng-clear-wrapper::before {
+  content: "*";
+  position: relative;
+  top: 4px;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+#ng-select-theme
+  ng-select.ng-select-single
+  .ng-select-container
+  .ng-value-container
+  .ng-input {
+  position: absolute;
+  left: 0;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 80%;
+}
+
+#ng-select-theme
+  ng-select
+  .ng-select-container
+  .ng-value-container
+  .ng-placeholder {
+  color: #666666 !important;
+}
+
+#ng-select-theme
+  ng-select.ng-select-single
+  .ng-select-container
+  .ng-value-container
+  .ng-value {
+  color: #000000;
+}
+
+#ng-select-theme .ng-dropdown-panel.ng-select-bottom {
+  top: 110%;
+  border: 1px solid rgb(0, 0, 0);
+  margin-top: 0px !important;
+}
+
+#ng-select-theme
+  .ng-dropdown-panel
+  .ng-dropdown-panel-items
+  .ng-option.ng-option-selected,
+#ng-select-theme
+  .ng-dropdown-panel
+  .ng-dropdown-panel-items
+  .ng-option.ng-option-selected.ng-option-marked {
+  color: #333;
+  background-color: rgb(199, 198, 198);
+}
+
+#ng-select-theme .ng-dropdown-panel.ng-select-bottom {
+  border-radius: 0.375rem !important;
+}
+
+#ng-select-theme
+  .ng-dropdown-panel
+  .ng-dropdown-panel-items
+  .ng-option:first-child {
+  border-radius: 0.375rem 0.375rem 0 0 !important;
+}
+
+#ng-select-theme
+  .ng-dropdown-panel
+  .ng-dropdown-panel-items
+  .ng-option:last-child {
+  border-radius: 0 0 0.375rem 0.375rem !important;
+}
+
+#ng-select-theme {
+  position: relative;
+}
+#ng-select-theme .ng-select-label {
+  position: absolute;
+  top: -11px;
+  font-size: 13px;
+  background-color: #ffffff;
+  left: 10px;
+  padding: 0 3px;
+  z-index: 2;
+}
+#ng-select-theme.check-icon {
+  color: rgb(0, 0, 0);
+  margin-right: 10px;
+}
+/* Customize the dropdown item */
+#ng-select-theme .custom-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(0, 0, 0);
+}
+/* Customize the selected value display */
+.custom-selected {
+  display: flex;
+  align-items: center;
+}
+
+/* ---------- Existing Multi-select Styles (updated with new id) ---------- */
+#multiselect-theme {
+  position: relative;
+  /* width: 300px;
+  margin-left: 100px;
+  margin-top: 100px;
+  height: 50px; */
+}
+
+#multiselect-theme .multiselect-label {
+  position: absolute;
+  top: -14px;
+  left: 8px;
+  background-color: #ffffff;
+  padding: 0 5px;
+}
+
+#multiselect-theme .multiselect-dropdown {
+  width: 100%;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 5px;
+}
+
+#multiselect-theme .multiselect-dropdown .dropdown-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none !important;
+}
+
+#multiselect-theme
+  .multiselect-dropdown
+  .dropdown-btn
+  .dropdown-multiselect__caret::before {
+  display: block;
+  border-color: unset !important;
+  border-style: unset !important;
+  border-width: unset !important;
+  /* background-image: url("assets/images/angle-down-svgrepo-com.svg"); */
+  background-size: 35px 35px;
+  top: 0 !important;
+  width: 35px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#multiselect-theme
+  .multiselect-dropdown
+  .dropdown-btn
+  .dropdown-multiselect__caret {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  top: 0 !important;
+  padding: 0;
+}
+
+#multiselect-theme
+  .multiselect-dropdown
+  .dropdown-btn
+  .selected-item-container
+  .selected-item {
+  border: 1px solid #cdd5dd;
+  margin-right: 4px;
+  background: #cdd4db;
+  padding: 0 5px;
+  color: #201f1f;
+  border-radius: 2px;
+  float: left;
+  max-width: 100px;
+}
+
+#multiselect-theme
+  .multiselect-dropdown
+  .dropdown-btn
+  .selected-item-container
+  .selected-item
+  a {
+  color: #000000 !important;
+}
+
+#multiselect-theme .multiselect-dropdown .dropdown-btn .selected-item:hover {
+  box-shadow: none !important;
+}
+
+#multiselect-theme .dropdown-list {
+  border: 1px solid black;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-top: 0;
+}
+
+#multiselect-theme .dropdown-list > ul:last-of-type {
+  background-color: rgb(252, 249, 249) !important;
+}
+
+#multiselect-theme .dropdown-list > ul:first-of-type {
+  /* optional styles */
+}
+
+#multiselect-theme .dropdown-list > ul:first-of-type > li:first-child {
+  /* optional styles */
+}
+
+#multiselect-theme .dropdown-list > ul:first-of-type > li:last-child {
+  /* optional styles */
+}
+
+#multiselect-theme .dropdown-list .filter-textbox input {
+  background-color: #f3f3f3;
+  padding: 10px !important;
+  color: rgb(15, 15, 15);
+}
+
+#multiselect-theme .dropdown-list .filter-textbox input::placeholder {
+  color: rgb(0, 0, 0) !important;
+}
+
+#multiselect-theme .multiselect-dropdown .dropdown-btn {
+  padding: 10px 10px;
+  height: 100%;
+}
+
+/* Additional styling for checkbox items */
+.multiselect-item-checkbox input[type="checkbox"] + div:before {
+  border: 2px solid black !important;
+}
+.multiselect-item-checkbox input[type="checkbox"]:checked + div:before {
+  background-color: black !important;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+  height: unset !important;
+}

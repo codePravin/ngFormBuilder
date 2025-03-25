@@ -1,0 +1,283 @@
+/* Remove native icons from time, date, datetime-local, month, week */
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="week"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"] {
+  position: relative;
+  /* z-index: 2; */
+}
+
+input::-webkit-clear-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* Default theme */
+/* Always hide the label when default theme is active */
+.form-group .default-theme-label {
+  display: none;
+}
+
+/* Show label only when parent has default-theme class */
+.form-group.default-theme .default-theme-label {
+  display: block;
+}
+
+/* Hide label specific to floating themes label when parent has default-theme class */
+.form-group.default-theme .input-container .form-label {
+  display: none;
+}
+
+/* input field icons block */
+.input-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 18px;
+  color: #666;
+}
+
+/* input field icons style */
+.input-icon .icon {
+  width: 15px;
+  height: auto;
+  cursor: pointer;
+}
+
+.input-icon.multi {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 18px;
+  color: #666;
+
+}
+
+/* input field icons style */
+.input-icon .icon.multi {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+.form-group {
+  position: relative;
+  padding: 0 10px;
+  min-height: 40px;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  width: 100%;
+  height: 45px;
+  padding: 10px 10px 10px 10px;
+  /* Space for icon */
+  font-size: 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.inside-floating-theme div .input-container .form-input {
+  padding: 15px 10px 5px 10px;
+}
+
+/* Floating Theme */
+.floating-theme .form-label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  background: transparent;
+  padding: 0 5px;
+  color: #aaa;
+}
+
+.floating-theme .form-input:focus+.form-label,
+.floating-theme .form-input:not(:placeholder-shown)+.form-label {
+  top: 0px;
+  left: 5px;
+  font-size: 12px;
+  color: #007bff;
+  background: white;
+  z-index: 1002;
+}
+
+/* Inside Floating Theme */
+.inside-floating-theme .form-label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  background: transparent;
+  padding: 0 5px;
+  color: #aaa;
+}
+
+.inside-floating-theme .form-input:focus+.form-label,
+.inside-floating-theme .form-input:not(:placeholder-shown)+.form-label {
+  top: 7px;
+  left: 6px;
+  font-size: 10px;
+  color: #007bff;
+  background-color: #ffffff;
+  background: linear-gradient(to bottom,
+      /*top*/
+      transparent 10%,
+      /*bottom*/
+      #ffffff 90%);
+}
+
+/* Input Container */
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* min-height: 50px; */
+}
+
+/* Common Parent Container Styles */
+/* .form-group {
+    position: relative;
+    padding: 0 10px;
+    min-height: 40px;
+    margin-bottom: 20px;
+  } */
+
+/* Input Container for layout and positioning */
+/* .input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+   */
+
+.default-theme .default-label {
+  display: none;
+}
+
+
+
+/* .input-font-size {
+  font-size: 12px;
+} */
+
+/* Tooltip Icon styling */
+.tooltip-icon {
+  position: absolute;
+  right: 0;
+  color: #666;
+  cursor: pointer;
+}
+
+.tooltip-icon .icon-type {
+  width: 12px;
+  color: #000;
+}
+
+/* Tooltip using pseudo-element */
+.tooltip-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+/* Tooltip Positioning for 'tooltip-top-right' */
+.form-group.tooltip-top-right .tooltip-icon {
+  top: -24px;
+  right: 11px;
+}
+
+.form-group.tooltip-top-right .tooltip-icon::after {
+  bottom: 82%;
+  /* positions tooltip above the icon */
+  right: -40px;
+  margin-bottom: 0px;
+}
+
+/* Tooltip Positioning for 'tooltip-right' */
+.form-group.tooltip-right .tooltip-icon {
+  top: 50%;
+  right: -30px;
+  /* adjust as needed */
+  transform: translateY(-50%);
+  z-index: 10026;
+}
+
+.form-group.tooltip-right .tooltip-icon::after {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-left: 5px;
+}
+
+/* Show the tooltip on hover */
+.tooltip-icon:hover::after {
+  opacity: 1;
+}
+
+.input-validation {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  line-height: 1.5;
+}
+
+.validation-icon {
+  width: 10px;
+}
+
+.validation-border {
+  border: 1px solid red;
+}
+
+
+.inside-floating-theme .form-input.validating-input {
+  background-color: #ffd5d5;
+  border: 1px solid #ffbbbb
+}
+
+.form-group.tooltip-right .tooltip-icon::after {
+  top: -8px !important;
+  left: -45px !important;
+  z-index: 1005 !important;
+}
+
+textarea.form-input {
+  min-height: 100px;
+}
+
+.inside-floating-theme input.form-input {
+  border-bottom: 2px solid red;
+}
+
+.inside-floating-theme textarea.form-input {
+  border-bottom: 2px solid red;
+}

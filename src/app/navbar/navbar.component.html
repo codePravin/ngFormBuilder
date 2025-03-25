@@ -1,0 +1,83 @@
+<header class="custom-reusable-navbar">
+  <nav class="navbar">
+    <!-- 1. Hamburger Menu & Company Name -->
+    <div class="navbar-items-left">
+      <button class="nav-btn" type="button" (click)="toggleOffcanvas()">
+        <img class="icons" src="/assets/images/nav-bar-icon.svg" alt="Menu" />
+      </button>
+      <a class="navbar-brand" href="#">eMOC</a>
+    </div>
+
+    <!-- 2. Navigation Items -->
+    <ul class="navbar-items-right">
+      <!-- 3. Home -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <img class="icons" src="/assets/images/home-icon.svg" alt="" />
+          <span class="nav-label">Home</span>
+        </a>
+      </li>
+
+      <!-- 4. Help -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <img class="icons" src="/assets/images/question-circle-icon.svg" alt="" />
+          <span class="nav-label">Help</span>
+        </a>
+      </li>
+
+      <!-- 5. Moc flow -->
+      <li class="nav-item dropdown moc-flow-custom">
+        <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown"
+          data-bs-display="static" href="#">
+          <img class="icons" src="/assets/images/flow-icon.png" alt="" />
+          <span class="nav-label">MOC Flow</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdown">
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><a class="dropdown-item" href="#">Preferences</a></li>
+        </ul>
+      </li>
+
+      <div class="last-two">
+        <!-- 6. User -->
+        <li class="nav-item dropdown user-custom-bg">
+          <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown"
+            data-bs-display="static" href="#">
+            <img class="icons" src="/assets/images/feather-icon.png" alt="" />
+            <div class="d-flex flex-column">
+              <span class="nav-label">Welcome</span>
+              <span class="nav-label text-success">User name</span>
+            </div>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Preferences</a></li>
+          </ul>
+        </li>
+        <!-- 7. Logout -->
+        <li class="nav-item logout-custom-bg">
+          <a class="nav-link" href="#">
+            <img class="icons" src="/assets/images/logout-icon.png" alt="" />
+            <span class="nav-label text-light">Logout</span>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </nav>
+</header>
+
+<!-- Offcanvas Sidebar -->
+<div class="offcanvas offcanvas-start push-menu" [class.show]="isOffcanvasOpen" #offcanvasElement>
+  <div class="offcanvas-header">
+    <a class="sidenav-logo" href="#">
+      <img class="nav-logo" src="assets/images/nrl-logo.png" alt="">
+    </a>
+  </div>
+  <div class="offcanvas-body scrollbar-resize">
+    <app-side-nav-bar></app-side-nav-bar>
+  </div>
+</div>
+<!-- <app-multiselect></app-multiselect> -->
+<!-- <app-ng-select></app-ng-select> -->
+<app-wroking-ng></app-wroking-ng>

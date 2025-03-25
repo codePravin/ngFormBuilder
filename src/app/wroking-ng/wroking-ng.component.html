@@ -1,0 +1,31 @@
+<div id="default-theme">
+  <ng-select
+    class="ng-select"
+    [items]="cars"
+    bindLabel="name"
+    bindValue="id"
+    [clearable]="true"
+    placeholder="Select an Option"
+    [(ngModel)]="selectedCar"
+  >
+    <!-- <ng-template ng-arrow-tmp>
+      <i class="fa fa-chevron-down"></i>
+    </ng-template> -->
+    <!-- Customize the dropdown items with a checkmark icon -->
+  <ng-template ng-option-tmp let-item="item" let-index="index">
+    <div class="custom-option">
+        <span class="item-label">{{ item.name }}</span>
+      <span *ngIf="selectedCar === item.id" class="check-icon">&#10003;</span>
+      <!-- {{ item.name }} -->
+      
+    </div>
+  </ng-template>
+  <!-- <ng-template ng-label-tmp let-item="item">
+    <div class="custom-selected">
+      <span class="check-icon">&#10003;</span>
+      {{ item.name }}
+    </div>
+  </ng-template> -->
+  </ng-select>
+  <label class="ng-select-label" for="">Select preferred language</label>
+</div>

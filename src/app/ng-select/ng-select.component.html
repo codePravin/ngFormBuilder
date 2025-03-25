@@ -1,0 +1,19 @@
+<div class="single-select-wrapper">
+  <ng-select
+    [items]="accounts"
+    bindLabel="name"
+    bindValue="name"
+    [(ngModel)]="selectedAccount"
+    [placeholder]="placeholderText"
+    [clearable]="true"
+    (ngModelChange)="onValueChange($event)"
+  >
+  </ng-select>
+  <img
+    class="dropdown-icon"
+    src="assets/images/angle-down-svgrepo-com.svg"
+    alt=""
+    (click)="toggleDropdown()"
+  />
+  <label class="ng-form-lable" for="">Select preferred langauge</label>
+</div>

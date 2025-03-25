@@ -1,0 +1,289 @@
+<!-- inside-floating-theme            floating-theme                default-theme -->
+<div class="container mt-5 floating-theme parent-padding">
+  <h1 style="text-align: center" class="mb-4">
+    Custom Style for All Input Fields
+  </h1>
+  <form
+    style="display: flex; flex-direction: column; gap: 3rem"
+    [formGroup]="form"
+  >
+    <!-- Text Input -->
+    <div class="field-container">
+      <input
+        type="text"
+        id="textInput"
+        formControlName="textInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="textInput" class="theme-label">Text Input</label>
+    </div>
+
+    <!-- Email Input -->
+    <div class="field-container">
+      <input
+        type="email"
+        id="emailInput"
+        formControlName="emailInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="emailInput" class="theme-label">Email Input</label>
+    </div>
+
+    <!-- Password Input -->
+    <div class="field-container">
+      <input
+        type="password"
+        id="passwordInput"
+        formControlName="passwordInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="passwordInput" class="theme-label">Password Input</label>
+    </div>
+
+    <!-- Number Input -->
+    <div class="field-container">
+      <input
+        type="number"
+        id="numberInput"
+        formControlName="numberInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="numberInput" class="theme-label">Number Input</label>
+    </div>
+
+    <!-- URL Input -->
+    <div class="field-container">
+      <input
+        type="url"
+        id="urlInput"
+        formControlName="urlInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="urlInput" class="theme-label">URL Input</label>
+    </div>
+
+    <!-- Telephone Input -->
+    <div class="field-container">
+      <input
+        type="tel"
+        id="telInput"
+        formControlName="telInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="telInput" class="theme-label">Telephone Input</label>
+    </div>
+
+    <!-- Search Input -->
+    <div class="field-container">
+      <input
+        type="search"
+        id="searchInput"
+        formControlName="searchInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="searchInput" class="theme-label">Search Input</label>
+    </div>
+
+    <!-- Date Input -->
+    <div class="field-container">
+      <input
+        type="date"
+        id="dateInput"
+        formControlName="dateInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="dateInput" class="theme-label">Date Input</label>
+    </div>
+
+    <!-- Time Input -->
+    <div class="field-container">
+      <input
+        type="time"
+        id="timeInput"
+        formControlName="timeInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="timeInput" class="theme-label">Time Input</label>
+    </div>
+
+    <!-- Datetime-local Input -->
+    <div class="field-container">
+      <input
+        type="datetime-local"
+        id="datetimeInput"
+        formControlName="datetimeInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="datetimeInput" class="theme-label"
+        >Datetime-local Input</label
+      >
+    </div>
+
+    <!-- Month Input -->
+    <div class="field-container">
+      <input
+        type="month"
+        id="monthInput"
+        formControlName="monthInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="monthInput" class="theme-label">Month Input</label>
+    </div>
+
+    <!-- Week Input -->
+    <div class="field-container">
+      <input
+        type="week"
+        id="weekInput"
+        formControlName="weekInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="weekInput" class="theme-label">Week Input</label>
+    </div>
+
+    <div class="field-container">
+      <input
+        class="theme-input"
+        type="text"
+        name="datetimes"
+        value="10/24/1984"
+      />
+      <label for="weekInput" class="theme-label">Date Range Picker</label>
+    </div>
+
+    <div class="field-container">
+      <input
+        class="theme-input"
+        id="datetimepicker"
+        type="text"
+        value="10/24/1984"
+      />
+      <label for="weekInput" class="theme-label">Date time Picker</label>
+    </div>
+
+    <!-- Textarea -->
+    <div class="field-container">
+      <textarea
+        id="textareaInput"
+        formControlName="textareaInput"
+        class="theme-input"
+        placeholder=" "
+        rows="3"
+      ></textarea>
+      <label for="textareaInput" id="textarea-theme-label" class="theme-label"
+        >Textarea</label
+      >
+    </div>
+
+    <!-- File Input -->
+    <div class="field-container">
+      <input
+        type="file"
+        id="fileInput"
+        formControlName="fileInput"
+        class="theme-input"
+        placeholder=" "
+      />
+      <label for="fileInput" class="theme-label">File Input</label>
+    </div>
+
+    <!-- Select Dropdown -->
+    <div class="field-container">
+      <select
+        id="selectInput"
+        formControlName="selectInput"
+        class="theme-input"
+      >
+        <option selected>Open this select menu</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select>
+      <label for="selectInput" class="theme-label">Select Input</label>
+    </div>
+
+    <!-- Multiple Select -->
+    <div class="field-container">
+      <select
+        id="multiSelect"
+        formControlName="multiSelect"
+        class="theme-input"
+        multiple
+      >
+        <option value="multi1">Multi Option 1</option>
+        <option value="multi2">Multi Option 2</option>
+        <option value="multi3">Multi Option 3</option>
+      </select>
+      <label for="multiSelect" id="multiselect-theme-label" class="theme-label"
+        >Multi Select</label
+      >
+    </div>
+
+    <!-- Hidden Input (remains hidden) -->
+    <input type="hidden" formControlName="hiddenInput" />
+
+    <!-- NG-Select Block -->
+    <div
+      id="ng-select-theme"
+      class="parent-padding field-container"
+      style="position: relative"
+    >
+      <ng-select
+        class="ng-select"
+        [items]="cars"
+        bindLabel="name"
+        bindValue="id"
+        [clearable]="true"
+        placeholder="Select an Option"
+        [(ngModel)]="selectedCar"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <ng-template ng-option-tmp let-item="item" let-index="index">
+          <div class="custom-option">
+            <span class="item-label">{{ item.name }}</span>
+            <span *ngIf="selectedCar === item.id" class="check-icon"
+              >&#10003;</span
+            >
+          </div>
+        </ng-template>
+      </ng-select>
+      <label class="ng-select-label">Select preferred language</label>
+      <!-- <label class="theme-label">Select preferred language</label> -->
+    </div>
+
+    <div
+      id="multiselect-theme"
+      class="parent-padding field-container"
+      style="position: relative"
+    >
+      <ng-multiselect-dropdown
+        [placeholder]="'custom placeholder'"
+        [settings]="dropdownSettings"
+        [data]="dropdownList"
+        [(ngModel)]="selectedItems"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+        [ngModelOptions]="{ standalone: true }"
+      >
+      </ng-multiselect-dropdown>
+      <!-- Use your label style – you can either use the existing class or switch to .theme-label if desired -->
+      <!-- <div class="multiselect-label">Multiselect</div> -->
+      <label class="theme-label">Multiselect</label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

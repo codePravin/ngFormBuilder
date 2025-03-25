@@ -1,0 +1,63 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<div class="accordian-wrapper">
+    <div class="accordion" id="accordionExample">
+        <div *ngFor="let str of arr; index as i; first as isFirst" class="accordion-item">
+            <h2 class="accordion-header" [id]="'heading' + i">
+                <button class="accordion-button" type="button" [attr.data-bs-toggle]="'collapse'"
+                    [attr.data-bs-target]="'#collapse' + i" [attr.aria-expanded]="isFirst ? 'true' : 'false'"
+                    [attr.aria-controls]="'collapse' + i">
+                    <div class="header-content">
+                        <div class="left-content">
+                            <!-- <i class="fas fa-user me-2"></i> -->
+                            <i class="bi bi-sticky-fill"></i>
+                            <span style="margin-left: 10px;">{{ str }}</span>
+                        </div>
+                        <i class="fas fa-plus accordion-icon" [ngClass]="{'rotate': isFirst}"></i>
+                        <!-- Rotate the icon when expanded -->
+                    </div>
+                </button>
+            </h2>
+            <div [id]="'collapse' + i" class="accordion-collapse collapse" [class.show]="isFirst"
+                [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="body-content">
+                        <div>
+                            MOC Dashboard
+                        </div>
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Additional accordion items if needed -->
+        <!-- <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <div class="header-content">
+                        <div class="left-content">
+                            <i class="fas fa-user me-2"></i>
+                            <span style="margin-left: 10px;">Settings</span>
+                        </div>
+                        <i class="fas fa-plus accordion-icon"></i>
+                    </div>
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="body-content">
+                        <div>
+                            <strong>This is another accordion item.</strong> It shares the same styling as the first
+                            one.
+                        </div>
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>

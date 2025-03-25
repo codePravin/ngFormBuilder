@@ -1,0 +1,442 @@
+/* Default Theme Parent */
+.default-theme .input-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  position: relative;
+}
+
+/* Label inside input-wrapper but placed above input */
+.default-theme .input-wrapper > label {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 14px;
+  color: #333;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Make room for label */
+.default-theme .input-wrapper {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Input Field Styling */
+.default-theme #input-field {
+  height: auto;
+  min-height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex: 1;
+  width: 100% !important;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Tooltip Icon Styling */
+.default-theme .tooltip-icon {
+  position: absolute;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Tooltip Visibility */
+.tooltip-icon[data-tooltip]:after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #333;
+  border-radius: 3px;
+  white-space: nowrap;
+  visibility: hidden;
+}
+
+.tooltip-icon:hover::after {
+  visibility: visible;
+}
+
+/* Tooltip Positioning */
+.input-container.tooltip-top-right .tooltip-icon {
+  top: -24px;
+  right: 0;
+}
+
+.input-container.tooltip-top-left-before-label .tooltip-icon {
+  top: -24px;
+  left: 0;
+}
+
+.input-container.tooltip-at-top-left-after-label .tooltip-icon {
+  top: -24px;
+  left: 85px;
+}
+
+.input-container.tooltip-at-right .tooltip-icon {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+  margin-left: 10px;
+}
+
+.input-container.tooltip-at-left .tooltip-icon {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input-container.tooltip-inside .tooltip-icon {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  visibility: visible;
+}
+
+.tooltip-at-right-outside .tooltip-icon {
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  visibility: visible;
+}
+
+/* Adjust label/input margins for specific tooltip styles */
+.input-container.tooltip-at-right label {
+  margin-right: 5px;
+}
+
+.input-container.tooltip-at-right input {
+  padding-left: 10px;
+}
+
+.input-container.tooltip-top-left-before-label label {
+  margin-left: 15px;
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 600px) {
+  .default-theme .input-container {
+    max-width: 100%;
+  }
+}
+
+/* Handle icon inside input field */
+.default-theme .input-container.has-icon-inside .input-wrapper {
+  position: relative;
+}
+
+.default-theme .input-container.has-icon-inside input {
+  padding-right: 35px; /* Space for icon */
+}
+
+.default-theme .input-icon-inside {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  pointer-events: none;
+}
+
+
+
+.floating-label-theme{
+  /* background-color: red; */
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.floating-label-theme input {
+  height: auto;
+  min-height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex: 1;
+  width: 100% !important;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+
+/* ===================== ⚙️ Parent Theme Wrapper ===================== */
+.floating-label-theme .input-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  position: relative;
+}
+
+/* ===================== 🏷️ Label (Floating) ===================== */
+.floating-label-theme .input-wrapper > label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  background-color: white;
+  /* padding: 0 4px; */
+  font-size: 14px;
+  color: #aaa;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+/* ===================== 🧾 Input Field ===================== */
+.floating-label-theme .input-wrapper input {
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* On Focus or Text Present - Float Label */
+.floating-label-theme .input-wrapper input:focus + .input-icon-inside + .tooltip-icon + label,
+.floating-label-theme .input-wrapper input:not(:placeholder-shown) + .input-icon-inside + .tooltip-icon + label {
+  top: -0px;
+  font-size: 12px;
+  padding: 0 4px;
+  color: #333;
+  background: linear-gradient(to bottom,/*top*/ rgb(255, 255, 255) 50%, /*bottom*/ #ffffff 50%);
+}
+
+/* Input Focus Border */
+.floating-label-theme .input-wrapper input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* ===================== 🧩 Inside Icon ===================== */
+.floating-label-theme .input-icon-inside {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+/* ===================== ❓ Tooltip Icon ===================== */
+.floating-label-theme .tooltip-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 3;
+}
+
+
+
+
+/* Tooltip on Hover */
+.floating-label-theme .tooltip-icon:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 8px;
+  background: #333;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* ===================== 🔹 Common Base Styles (untouched) ===================== */
+.input-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 1rem 0;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+/* ===================== 🔸 Default Theme ===================== */
+.input-container:not(.floating-label-theme) .input-wrapper {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-container:not(.floating-label-theme) label {
+  font-size: 14px;
+  /* margin-bottom: 6px; */
+  color: #333;
+  position: static;
+}
+
+
+.inner-floating-theme  {
+
+display: flex
+;
+    justify-content: center;
+  }
+
+.inner-floating-theme .input-wrapper {
+  position: relative;
+}
+
+.inner-floating-theme .input-wrapper input {
+  min-height: 40px;
+  padding: 0px 10px 0px 10px; /* top padding for floating label */
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+  padding-top: 13px;
+  overflow: hidden;
+}
+
+.inner-floating-theme .input-wrapper textarea {
+  min-height: 40px;
+  padding: 0px 10px 0px 10px; /* top padding for floating label */
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+  overflow-y: hidden;
+  resize: none;
+  transition: height 0.2s ease;
+}
+
+.inner-floating-theme .input-wrapper label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #aaa;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background-color: white;
+  /* padding: 0 4px; */
+}
+
+/* Float label on focus or when input has value */
+.inner-floating-theme .input-wrapper input:focus + label,
+.inner-floating-theme .input-wrapper input:not(:placeholder-shown) + label {
+  top: 0px; /* inside border */
+  font-size: 12px;
+  color: #333;
+  transform: none;
+  background-color: transparent;
+}
+.inner-floating-theme .input-wrapper textarea:focus + label,
+.inner-floating-theme .input-wrapper textarea:not(:placeholder-shown) + label {
+  top: 0px; /* inside border */
+  font-size: 12px;
+  color: #333;
+  transform: none;
+  background-color: transparent;
+
+  
+}
+
+/* Input Focus Effect */
+.inner-floating-theme .input-wrapper input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.inner-floating-theme .input-wrapper textarea:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Icon inside */
+.inner-floating-theme .input-icon-inside {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+/* Tooltip Icon */
+.inner-floating-theme .tooltip-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* Tooltip hover */
+.inner-floating-theme .tooltip-icon:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 8px;
+  background: #333;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+
+
+.hidden-file-input {
+  display: none;
+}
+
+.custom-file-label {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.custom-file-label:hover {
+  background-color: #0056b3;
+}
+
+#fileName {
+  margin-left: 10px;
+  font-style: italic;
+}

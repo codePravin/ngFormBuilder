@@ -1,0 +1,185 @@
+/* Navbar container */
+.custom-reusable-navbar {
+  height: var(--navbar-height);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-bold);
+  box-shadow: var(--shadow-navbar);
+  position: sticky;
+  top: 0;
+}
+
+/* Navbar */
+.custom-reusable-navbar .navbar {
+  background-color: var(--color-primary);
+  padding: 0;
+  height: 100%;
+}
+
+/* Navbar left section */
+.custom-reusable-navbar .navbar .navbar-items-left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 0 var(--spacing-sm);
+}
+
+/* Navbar left section items */
+.custom-reusable-navbar .navbar .navbar-items-left .nav-btn {
+  background-color: transparent;
+  border: none;
+  border-right: var(--border-width) solid var(--color-black);
+  height: 100%;
+  padding: 0 var(--spacing-md);
+}
+
+.custom-reusable-navbar .navbar .navbar-items-left .navbar-brand {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+/* Navbar right section items */
+.custom-reusable-navbar .navbar .navbar-items-right {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0 var(--spacing-xl);
+}
+
+.custom-reusable-navbar .navbar .navbar-items-right .last-two {
+  height: 100%;
+  display: flex;
+  gap: 0;
+}
+
+.custom-reusable-navbar .navbar .navbar-items-right .nav-item {
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.custom-reusable-navbar .navbar .navbar-items-right .nav-item.user-custom-bg {
+  background-color: var(--color-white);
+  padding: 0 var(--spacing-sm);
+}
+
+.custom-reusable-navbar .navbar .navbar-items-right .nav-item.logout-custom-bg {
+  background-color: var(--color-danger);
+  padding: 0 var(--spacing-sm);
+}
+
+.custom-reusable-navbar .navbar .navbar-items-right .nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0 var(--spacing-xs);
+}
+
+.custom-reusable-navbar .navbar .navbar-items-right .nav-item .nav-link .icons {
+  width: var(--icon-size);
+  height: auto;
+}
+
+/* Side navbar header */
+.offcanvas .offcanvas-header {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: var(--sideNav-logo-bg);
+}
+.offcanvas .offcanvas-header .sidenav-logo{
+  width: 100%;
+}
+.offcanvas .offcanvas-header .sidenav-logo .nav-logo{
+  width: 100%;
+}
+.offcanvas .offcanvas-body{
+  width: 100%;
+  padding: 0;
+}
+.offcanvas.offcanvas-start.push-menu.show{
+  background-color: #D8CCFF;
+}
+
+
+/* Side bar scroll custom style */
+/* width */
+.scrollbar-resize::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.scrollbar-resize::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.scrollbar-resize::-webkit-scrollbar-thumb {
+  background: #b7b7b7;
+}
+
+/* Handle on hover */
+.scrollbar-resize::-webkit-scrollbar-thumb:hover {
+  background: #b7b7b7;
+}
+
+/* Responsive Styling - Preserving exact original behavior */
+@media (max-width: 768px) {
+
+  .offcanvas.offcanvas-start.push-menu.show{
+    position: fixed;
+    top: 50px;
+  }
+
+  .custom-reusable-navbar {
+    height: var(--navbar-height-mobile);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .custom-reusable-navbar .navbar .navbar-items-right {
+    gap: 0 var(--spacing-lg);
+  }
+
+  .custom-reusable-navbar .navbar .navbar-items-right .nav-item .nav-link .nav-label {
+    display: none;
+  }
+
+  .custom-reusable-navbar .navbar .navbar-items-right .nav-item .nav-link {
+    gap: 0 0;
+  }
+
+  .custom-reusable-navbar .navbar .navbar-items-left .navbar-brand {
+    display: none;
+  }
+
+  .user-custom-bg .nav-label,
+  .moc-flow-custom .nav-label {
+    display: none;
+    /* Hide text */
+  }
+
+  .user-custom-bg .dropdown-toggle::after,
+  .moc-flow-custom .dropdown-toggle::after {
+    display: none !important;
+    /* Hide dropdown icon */
+  }
+
+  .custom-reusable-navbar .navbar .navbar-items-right .nav-item .nav-link .icons {
+    width: var(--icon-size-mobile);
+    height: auto;
+  }
+}
