@@ -1,5 +1,7 @@
-
-#ng-select, #ng-multiselect  {
+#ng-select,
+#ng-multiselect,
+.multiselect-dropdown .dropdown-btn,
+.form-input {
   padding: 0;
   height: 45px;
 }
@@ -18,7 +20,6 @@
   width: 100%;
 }
 .multiselect-dropdown .dropdown-btn {
-  height: 45px !important;
   display: flex !important;
   align-items: center !important;
 }
@@ -36,23 +37,22 @@
   border: none !important;
 }
 
-
 .ng-select .ng-arrow-wrapper {
   padding-right: 9px !important;
 }
-
-
-
-
 
 span.dropdown-multiselect__caret {
   display: none !important;
 }
 
-
-.inside-floating-theme .ng-select-container {
+.inside-floating-theme .validation-border-bottom .ng-select-container {
   border-bottom: 2px solid red !important;
 }
-.inside-floating-theme span.dropdown-btn {
+.inside-floating-theme .validation-border-bottom span.dropdown-btn {
+  display: flex !important;
+  align-items: center !important;
   border-bottom: 2px solid red !important;
+}
+.inside-floating-theme .multiselect-dropdown .dropdown-btn {
+  padding-top: 14px !important;
 }

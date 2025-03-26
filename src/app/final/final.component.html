@@ -1,585 +1,707 @@
 <!-- Default Theme -->
 <div style="width: 300px">
     <h4 style="text-align: center; margin-bottom: 30px">Default label theme</h4>
-    <div style="display: flex; flex-direction: column; gap: 20px" class="form-group default-theme tooltip-top-right">
-        <div>
-            <label for="input1" class="default-theme-label">User</label>
-            <div class="input-container">
-                <input id="input2" type="text" class="form-input" placeholder="" />
-                <label for="input2" class="form-label">User</label>
-                <i class="input-icon"><img class="icon" src="assets/images/feather-icon.png" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+    <div class="form-group default-theme tooltip-top-right">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: column; gap: 30px"
+            novalidate>
+            <div>
+                <label for="input1" class="default-theme-label">User</label>
+                <div class="input-container">
+                    <input id="input2" type="text" class="form-input" placeholder="" formControlName="user" />
+                    <label for="input2" class="form-label">User</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/feather-icon.png" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('user')?.touched && form.get('user')?.invalid">This field is required
+                    <span>*</span></label>
             </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
 
-        <div>
-            <label for="input1" class="default-theme-label">Choose File</label>
-            <div class="input-container">
-                <input id="input2" type="file" class="form-input  " placeholder=" " />
-                <label for="input2" class="form-label">Choose File</label>
-                <i class="input-icon"><img class="icon" src="assets/images/file-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+            <div>
+                <label for="input1" class="default-theme-label">Choose File</label>
+                <div class="input-container">
+                    <input id="input2" type="file" class="form-input  " placeholder=" " />
+                    <label for="input2" class="form-label">Choose File</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/file-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('file')?.touched && form.get('file')?.invalid">This field is required
+                    <span>*</span></label>
             </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-        <div>
-            <label for="input1" class="default-theme-label">Number Input</label>
-            <div class="input-container">
-                <input id="input2" type="number" class="form-input" placeholder=" " />
-                <label for="input2" class="form-label">Number Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/number-input-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+            <div>
+                <label for="input1" class="default-theme-label">Number Input</label>
+                <div class="input-container">
+                    <input id="input2" formControlName="number" type="number" class="form-input" placeholder=" " />
+                    <label for="input2" class="form-label">Number Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/number-input-svgrepo-com.svg"
+                            alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('number')?.touched && form.get('number')?.invalid">This field is required
+                    <span>*</span></label>
             </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-        <div>
-            <label for="input1" class="default-theme-label">Date Range Picker</label>
-            <div class="input-container">
-                <input class="form-input" id="input2" type="text" name="datetimes" value="10/24/1984" />
-                <label for="weekInput" class="form-label">Date Range Picker</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+            <div>
+                <label for="input1" class="default-theme-label">Date Range Picker</label>
+                <div class="input-container">
+                    <input class="form-input" formControlName="dateRange" id="input2" type="text" name="datetimes"
+                        value="10/24/1984" />
+                    <label for="weekInput" class="form-label">Date Range Picker</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('dateRange')?.touched && form.get('dateRange')?.invalid">This field is required
+                    <span>*</span></label>
             </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
 
-        <div>
-            <label for="input1" class="default-theme-label">Date Time Picker</label>
-            <div class="input-container">
-                <input class="form-input" id="datetimepicker1" type="text" value="10/24/1984" />
-                <label for="weekInput" class="form-label">Date Time Picker</label>
-                <i class="input-icon"><img class="icon" src="assets/images/i-schedule-school-date-time-svgrepo-com.svg"
+            <div>
+                <label for="input1" class="default-theme-label">Date Time Picker</label>
+                <div class="input-container">
+                    <input class="form-input" formControlName="dateTime" id="datetimepicker1" type="text"
+                        value="10/24/1984" />
+                    <label for="weekInput" class="form-label">Date Time Picker</label>
+                    <i class="input-icon"><img class="icon"
+                            src="assets/images/i-schedule-school-date-time-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('dateTime')?.touched && form.get('dateTime')?.invalid">This field is required
+                    <span>*</span></label>
+            </div>
+            <!-- Textarea -->
+            <div>
+                <label for="input1" class="default-theme-label">Text Area</label>
+                <div class="input-container">
+                    <textarea class="form-input" formControlName="textarea" placeholder="" rows="3"></textarea>
+                    <label for="weekInput" class="form-label">Text Area</label>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('textarea')?.touched && form.get('textarea')?.invalid">This field is required
+                    <span>*</span></label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label">Select</label>
+                <div class="input-container">
+                    <select  class="form-input custom-select" formControlName="select" name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                      </select>
+                    <label for="weekInput" class="form-label">Text Area</label>
+                    <i class="input-icon multi"><img class="icon multi" src="assets/images/angle-down-svgrepo-com.svg"
                         alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-        <!-- Textarea -->
-        <div>
-            <label for="input1" class="default-theme-label">Text Area</label>
-            <div class="input-container">
-                <textarea class="form-input" placeholder="" rows="3"></textarea>
-                <label for="weekInput" class="form-label">Text Area</label>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-
-        <!-- URL Input -->
-        <div>
-            <label for="input1" class="default-theme-label">URL Input</label>
-            <div class="input-container">
-                <input type="url" class="form-input" placeholder="" />
-                <label for="weekInput" class="form-label">URL Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/file-url-1759-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-        <!-- Telephone Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Telephone input</label>
-            <div class="input-container">
-                <input type="tel" id="telInput" class="form-input" placeholder=" " />
-                <label for="weekInput" class="form-label">Telephone input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/telephone-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-
-        <!-- Search Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Search Input</label>
-            <div class="input-container">
-                <input type="search" id="searchInput" class="form-input" placeholder=" " />
-                <label for="weekInput" class="form-label">Search Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/search-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-
-        <!-- Date Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Date Input</label>
-            <div class="input-container">
-                <input type="date" id="dateInput" class="form-input  " placeholder=" " />
-                <label for="weekInput" class="form-label">Date Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-
-        <div>
-            <label for="input1" class="default-theme-label">NG Select</label>
-            <div class="input-container">
-                <ng-select id="ng-select" class="form-input border-0" [items]="cars" bindLabel="name" bindValue="id"
-                    [clearable]="true" placeholder="Select an Option" [(ngModel)]="selectedCar"
-                    [ngModelOptions]="{ standalone: true }">
-                    <ng-template ng-option-tmp let-item="item" let-index="index">
-                        <div class="custom-option">
-                            <span class="item-label">{{ item.name }}</span>
-                            <span *ngIf="selectedCar === item.id" class="check-icon">&#10003;</span>
-                        </div>
-                    </ng-template>
-                </ng-select>
-                <label for="weekInput" class="form-label">Single Select</label>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-
-        <div>
-            <label for="input1" class="default-theme-label">NG Multiselect</label>
-            <div class="input-container">
-                <ng-multiselect-dropdown id="ng-multiselect" class="form-input border-0"
-                    [placeholder]="'custom placeholder'" [settings]="dropdownSettings" [data]="dropdownList"
-                    [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
-                    [ngModelOptions]="{ standalone: true }">
-                </ng-multiselect-dropdown>
-                <label for="weekInput" class="form-label">Multi Select</label>
-                <i class="input-icon multi"><img class="icon multi" src="assets/images/angle-down-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-        <!-- Time Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Time Input</label>
-            <div class="input-container">
-                <input type="time" id="timeInput" class="form-input  " placeholder=" " />
-                <label for="weekInput" class="form-label">Time Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/time-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-
-        <!-- Datetime-local Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Date Time Local</label>
-            <div class="input-container">
-                <input type="datetime-local" id="datetimeInput" class="form-input  " placeholder=" " />
-                <label for="weekInput" class="form-label">Date Time Local</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-
-        <!-- Month Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Month Input</label>
-            <div class="input-container">
-                <input type="month" id="monthInput" class="form-input  " placeholder=" " />
-                <label for="weekInput" class="form-label">Month Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-
-        <!-- Week Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Week Input</label>
-            <div class="input-container">
-                <input type="week" id="weekInput" class="form-input  " placeholder=" " />
-                <label for="weekInput" class="form-label">Week Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
-
-        <div>
-            <label for="input1" class="default-theme-label">Check box</label>
-            <div class="input-container">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Checked checkbox
-                    </label>
-                </div>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('select')?.touched && form.get('select')?.invalid">This field is required
+                    <span>*</span></label>
             </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
 
-        <div>
-            <label for="input1" class="default-theme-label">Radio buttons</label>
-            <div class="input-container">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Default radio
-                    </label>
+            <!-- URL Input -->
+            <div>
+                <label for="input1" class="default-theme-label">URL Input</label>
+                <div class="input-container">
+                    <input type="url" class="form-input" placeholder="" formControlName="url" />
+                    <label for="weekInput" class="form-label">URL Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/file-url-1759-svgrepo-com.svg"
+                            alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Default checked radio
-                    </label>
-                </div>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+                <label for="" class="input-validation" *ngIf="form.get('url')?.touched && form.get('url')?.invalid">This
+                    field is required <span>*</span></label>
             </div>
-            <label for="" class="input-validation">This field is required <span>*</span></label>
-        </div>
+            <!-- Telephone Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Telephone input</label>
+                <div class="input-container">
+                    <input type="tel" id="telInput" formControlName="tel" class="form-input" placeholder=" " />
+                    <label for="weekInput" class="form-label">Telephone input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/telephone-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" *ngIf="form.get('tel')?.touched && form.get('tel')?.invalid">This
+                    field is required <span>*</span></label>
+            </div>
+
+            <!-- Search Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Search Input</label>
+                <div class="input-container">
+                    <input type="search" id="searchInput" class="form-input" placeholder=" " formControlName="search" />
+                    <label for="weekInput" class="form-label">Search Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/search-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('search')?.touched && form.get('search')?.invalid">This field is required
+                    <span>*</span></label>
+            </div>
+
+            <!-- Date Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Date Input</label>
+                <div class="input-container">
+                    <input type="date" id="dateInput" class="form-input  " placeholder=" " formControlName="date" />
+                    <label for="weekInput" class="form-label">Date Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('date')?.touched && form.get('date')?.invalid">This field is required
+                    <span>*</span></label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label">NG Select</label>
+                <div class="input-container">
+                    <ng-select id="ng-select" class="form-input border-0" [items]="cars" bindLabel="name" bindValue="id"
+                        [clearable]="true" placeholder="Select an Option" [(ngModel)]="selectedCar"
+                        formControlName="singleSelect">
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            <div class="custom-option">
+                                <span class="item-label">{{ item.name }}</span>
+                                <span *ngIf="selectedCar === item.id" class="check-icon">&#10003;</span>
+                            </div>
+                        </ng-template>
+                    </ng-select>
+                    <label for="weekInput" class="form-label">NG Single Select</label>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('singleSelect')?.touched && form.get('singleSelect')?.invalid">This field is
+                    required <span>*</span></label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label">NG Multiselect</label>
+                <div class="input-container">
+                    <ng-multiselect-dropdown id="ng-multiselect" class="form-input border-0"
+                        [placeholder]="'custom placeholder'" formControlName="multiSelect" [settings]="dropdownSettings"
+                        [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)">
+                    </ng-multiselect-dropdown>
+                    <label for="weekInput" class="form-label">NG Multi Select</label>
+                    <i class="input-icon multi"><img class="icon multi" src="assets/images/angle-down-svgrepo-com.svg"
+                            alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('multiSelect')?.touched && form.get('multiSelect')?.invalid">This field is required
+                    <span>*</span></label>
+            </div>
+            <!-- Time Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Time Input</label>
+                <div class="input-container">
+                    <input type="time" id="timeInput" class="form-input" formControlName="time" placeholder=" " />
+                    <label for="weekInput" class="form-label">Time Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/time-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('time')?.touched && form.get('time')?.invalid">This field is required
+                    <span>*</span></label>
+            </div>
+
+            <!-- Datetime-local Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Date Time Local</label>
+                <div class="input-container">
+                    <input type="datetime-local" id="datetimeInput" class="form-input" formControlName="dateTimeLocal"
+                        placeholder=" " />
+                    <label for="weekInput" class="form-label">Date Time Local</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('dateTimeLocal')?.touched && form.get('dateTimeLocal')?.invalid">This field is
+                    required <span>*</span></label>
+            </div>
+
+            <!-- Month Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Month Input</label>
+                <div class="input-container">
+                    <input type="month" id="monthInput" class="form-input" formControlName="month" placeholder=" " />
+                    <label for="weekInput" class="form-label">Month Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('month')?.touched && form.get('month')?.invalid">This field is required
+                    <span>*</span>
+                </label>
+            </div>
+
+            <!-- Week Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Week Input</label>
+                <div class="input-container">
+                    <input type="week" id="weekInput" class="form-input" formControlName="week" placeholder=" " />
+                    <label for="weekInput" class="form-label">Week Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form.get('week')?.touched && form.get('week')?.invalid">This field is required
+                    <span>*</span></label>
+            </div>
+
+            <div>
+                <label class="default-theme-label">Check box</label>
+                <div class="input-container" formGroupName="checkboxGroup">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" formControlName="checkbox1" id="checkbox1" />
+                        <label class="form-check-label" for="checkbox1">Checkbox 1</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" formControlName="checkbox2" id="checkbox2" />
+                        <label class="form-check-label" for="checkbox2">Checkbox 2</label>
+                    </div>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label class="input-validation" *ngIf="checkboxGroupInvalid">This field is required
+                    <span>*</span>
+                </label>
+            </div>
+
+            <div>
+                <label class="default-theme-label">Radio buttons</label>
+                <div class="input-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" formControlName="radioOption1" id="radio1"
+                            value="option1" />
+                        <label class="form-check-label" for="radio1">Radio 1</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" formControlName="radioOption1" id="radio2"
+                            value="option2" />
+                        <label class="form-check-label" for="radio2">Radio 2</label>
+                    </div>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label class="input-validation"
+                    *ngIf="form.get('radioOption1')?.touched && form.get('radioOption1')?.invalid">
+                    This field is required <span>*</span>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Submit Form</button>
+        </form>
     </div>
 </div>
 
 <!-- Floating Theme -->
 <div style="width: 300px">
     <h4 style="text-align: center; margin-bottom: 54px">Floating label theme</h4>
-    <div style="display: flex; flex-direction: column; gap: 44px" class="form-group floating-theme tooltip-right">
-        <div>
-            <label for="input1" class="default-theme-label">User</label>
-            <div class="input-container">
-                <input id="input2" type="text" class="form-input validation-border" placeholder="" />
-                <label for="input2" class="form-label">User</label>
-                <i class="input-icon"><img class="icon" src="assets/images/feather-icon.png" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+    <div class="form-group floating-theme tooltip-right">
+        <form [formGroup]="form1" (ngSubmit)="onSubmit1()" style="display: flex; flex-direction: column; gap: 30px"
+            novalidate>
+            <div>
+                <label for="input1" class="default-theme-label">User</label>
+                <div class="input-container">
+                    <input id="input2" type="text" class="form-input" formControlName="user" placeholder=""
+                        [ngClass]="{ 'validation-border': form1.get('user')?.touched && form1.get('user')?.invalid }" />
+                    <label for="input2" class="form-label">User</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/feather-icon.png" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form1.get('user')?.touched && form1.get('user')?.invalid">This field is required
+                    <span>*</span>
+                </label>
             </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
 
-        <div>
-            <label for="input1" class="default-theme-label">Choose File</label>
-            <div class="input-container">
-                <input id="input2" type="file" class="form-input validation-border" placeholder=" " />
-                <label for="input2" class="form-label">Choose File</label>
-                <i class="input-icon"><img class="icon" src="assets/images/file-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+            <div>
+                <label for="input1" class="default-theme-label">Choose File</label>
+                <div class="input-container">
+                    <input id="input2" type="file" class="form-input" placeholder="" formControlName="file"
+                        [ngClass]="{ 'validation-border': form1.get('file')?.touched && form1.get('file')?.invalid }" />
+                    <label for="input2" class="form-label">Choose File</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/file-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" *ngIf="form1.get('file')?.touched && form1.get('file')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
             </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-        <div>
-            <label for="input1" class="default-theme-label">Number Input</label>
-            <div class="input-container">
-                <input id="input2" type="number" class="form-input validation-border" placeholder=" " />
-                <label for="input2" class="form-label">Number</label>
-                <i class="input-icon"><img class="icon" src="assets/images/number-input-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+            <div>
+                <label for="input1" class="default-theme-label">Number Input</label>
+                <div class="input-container">
+                    <input id="input2" type="number" class="form-input" formControlName="number"
+                        [ngClass]="{ 'validation-border': form1.get('number')?.touched && form1.get('number')?.invalid }"
+                        placeholder=" " />
+                    <label for="input2" class="form-label">Number</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/number-input-svgrepo-com.svg"
+                            alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form1.get('number')?.touched && form1.get('number')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
             </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-        <div>
-            <label for="input1" class="default-theme-label">Date Range Picker</label>
-            <div class="input-container">
-                <input class="form-input validation-border" id="input2" type="text" name="datetimes" value="10/24/1984" />
-                <label for="weekInput" class="form-label">Date Range Picker</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+            <div>
+                <label for="input1" class="default-theme-label">Date Range Picker</label>
+                <div class="input-container">
+                    <input class="form-input" formControlName="dateRange"
+                        [ngClass]="{ 'validation-border': form1.get('dateRange')?.touched && form1.get('dateRange')?.invalid }"
+                        id="input2" type="text" name="datetimes" value="10/24/1984" />
+                    <label for="weekInput" class="form-label">Date Range Picker</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form1.get('dateRange')?.touched && form1.get('dateRange')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
             </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
 
-        <div>
-            <label for="input1" class="default-theme-label">Date Time Picker</label>
-            <div class="input-container">
-                <input class="form-input validation-border" id="datetimepicker2" type="text" value="10/24/1984" />
-                <label for="weekInput" class="form-label">Date Time Picker</label>
-                <i class="input-icon"><img class="icon" src="assets/images/i-schedule-school-date-time-svgrepo-com.svg"
+            <div>
+                <label for="input1" class="default-theme-label">Date Time Picker</label>
+                <div class="input-container">
+                    <input class="form-input" id="datetimepicker2" type="text" value="10/24/1984"
+                        formControlName="dateTime"
+                        [ngClass]="{ 'validation-border': form1.get('dateTime')?.touched && form1.get('dateTime')?.invalid }" />
+                    <label for="weekInput" class="form-label">Date Time Picker</label>
+                    <i class="input-icon"><img class="icon"
+                            src="assets/images/i-schedule-school-date-time-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form1.get('dateTime')?.touched && form1.get('dateTime')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+            <!-- Textarea -->
+            <div>
+                <label for="input1" class="default-theme-label">Text Area</label>
+                <div class="input-container">
+                    <textarea class="form-input" placeholder="" rows="3" formControlName="textarea"
+                        [ngClass]="{ 'validation-border': form1.get('textarea')?.touched && form1.get('textarea')?.invalid }"></textarea>
+                    <label for="weekInput" class="form-label">Text Area</label>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form1.get('textarea')?.touched && form1.get('textarea')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label">Select</label>
+                <div class="input-container">
+                    <select  class="form-input custom-select" formControlName="select"
+                    [ngClass]="{ 'validation-border': form1.get('select')?.touched && form1.get('select')?.invalid }" name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                      </select>
+                    <label for="weekInput" class="form-label">Select</label>
+                    <i class="input-icon multi"><img class="icon multi" src="assets/images/angle-down-svgrepo-com.svg"
                         alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-        <!-- Textarea -->
-        <div>
-            <label for="input1" class="default-theme-label">Text Area</label>
-            <div class="input-container">
-                <textarea class="form-input validation-border" placeholder="" rows="3"></textarea>
-                <label for="weekInput" class="form-label">Text Area</label>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-
-        <!-- URL Input -->
-        <div>
-            <label for="input1" class="default-theme-label">URL Input</label>
-            <div class="input-container">
-                <input type="url" class="form-input validation-border" placeholder="" />
-                <label for="weekInput" class="form-label">URL Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/file-url-1759-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-        <!-- Telephone Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Telephone input</label>
-            <div class="input-container">
-                <input type="tel" id="telInput" class="form-input validation-border" placeholder=" " />
-                <label for="weekInput" class="form-label">Telephone input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/telephone-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-
-        <!-- Search Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Search Input</label>
-            <div class="input-container">
-                <input type="search" id="searchInput" class="form-input validation-border" placeholder=" " />
-                <label for="weekInput" class="form-label">Search Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/search-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-
-        <!-- Date Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Date Input</label>
-            <div class="input-container">
-                <input type="date" id="dateInput" class="form-input validation-border" placeholder=" " />
-                <label for="weekInput" class="form-label">Date Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-
-        <div>
-            <label for="input1" class="default-theme-label">NG Select</label>
-            <div class="input-container">
-                <ng-select id="ng-select" class="form-input validation-border" [items]="cars" bindLabel="name" bindValue="id"
-                    [clearable]="true" placeholder="Select an Option" [(ngModel)]="selectedCar1"
-                    [ngModelOptions]="{ standalone: true }">
-                    <ng-template ng-option-tmp let-item="item" let-index="index">
-                        <div class="custom-option">
-                            <span class="item-label">{{ item.name }}</span>
-                            <span *ngIf="selectedCar1 === item.id" class="check-icon">&#10003;</span>
-                        </div>
-                    </ng-template>
-                </ng-select>
-                <label for="weekInput" class="form-label">Single Select</label>
-                <!-- <i class="input-icon">🔽</i> -->
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-
-        <div>
-            <label for="input1" class="default-theme-label">NG Multiselect</label>
-            <div class="input-container border-0">
-                <ng-multiselect-dropdown id="ng-multiselect" class="form-input validation-border"
-                    [placeholder]="'custom placeholder'" [settings]="dropdownSettings1" [data]="dropdownList1"
-                    [(ngModel)]="selectedItems1" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
-                    [ngModelOptions]="{ standalone: true }">
-                </ng-multiselect-dropdown>
-                <label for="weekInput" class="form-label">Multi Select</label>
-                <i class="input-icon multi"><img class="icon multi" src="assets/images/angle-down-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-        <!-- Time Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Time Input</label>
-            <div class="input-container">
-                <input type="time" id="timeInput" class="form-input validation-border" placeholder=" " />
-                <label for="weekInput" class="form-label">Time Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/time-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-
-        <!-- Datetime-local Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Date Time Local</label>
-            <div class="input-container">
-                <input type="datetime-local" id="datetimeInput" class="form-input validation-border" placeholder=" " />
-                <label for="weekInput" class="form-label">Date Time Local</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-
-        <!-- Month Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Month Input</label>
-            <div class="input-container">
-                <input type="month" id="monthInput" class="form-input validation-border" placeholder=" " />
-                <label for="weekInput" class="form-label">Month Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-
-        <!-- Week Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Week Input</label>
-            <div class="input-container">
-                <input type="week" id="weekInput" class="form-input validation-border" placeholder=" " />
-                <label for="weekInput" class="form-label">Week Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
-
-        <div>
-            <label for="input1" class="default-theme-label">Check box</label>
-            <div class="input-container">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Checked checkbox
-                    </label>
-                </div>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+                <label for="" class="input-validation"
+                    *ngIf="form1.get('select')?.touched && form1.get('select')?.invalid">This field is required
+                    <span>*</span></label>
             </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
 
-        <div>
-            <label for="input1" class="default-theme-label">Label</label>
-            <div class="input-container">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Default radio
-                    </label>
+            <!-- URL Input -->
+            <div>
+                <label for="input1" class="default-theme-label">URL Input</label>
+                <div class="input-container">
+                    <input type="url" class="form-input" formControlName="url"
+                        [ngClass]="{ 'validation-border': form1.get('url')?.touched && form1.get('url')?.invalid }"
+                        placeholder="" />
+                    <label for="weekInput" class="form-label">URL Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/file-url-1759-svgrepo-com.svg"
+                            alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Default checked radio
-                    </label>
-                </div>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+                <label for="" class="input-validation" *ngIf="form1.get('url')?.touched && form1.get('url')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
             </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
+            <!-- Telephone Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Telephone input</label>
+                <div class="input-container">
+                    <input type="tel" id="telInput" class="form-input" formControlName="tel"
+                        [ngClass]="{ 'validation-border': form1.get('tel')?.touched && form1.get('tel')?.invalid }"
+                        placeholder=" " />
+                    <label for="weekInput" class="form-label">Telephone input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/telephone-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" class="input-validation"
+                    *ngIf="form1.get('tel')?.touched && form1.get('tel')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <!-- Search Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Search Input</label>
+                <div class="input-container">
+                    <input type="search" id="searchInput" class="form-input" formControlName="search"
+                        [ngClass]="{ 'validation-border': form1.get('search')?.touched && form1.get('search')?.invalid }"
+                        placeholder=" " />
+                    <label for="weekInput" class="form-label">Search Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/search-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form1.get('search')?.touched && form1.get('search')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <!-- Date Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Date Input</label>
+                <div class="input-container">
+                    <input type="date" id="dateInput" class="form-input" formControlName="date"
+                        [ngClass]="{ 'validation-border': form1.get('date')?.touched && form1.get('date')?.invalid }"
+                        placeholder=" " />
+                    <label for="weekInput" class="form-label">Date Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" *ngIf="form1.get('date')?.touched && form1.get('date')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label">NG Select</label>
+                <div class="input-container">
+                    <ng-select id="ng-select" class="form-input" formControlName="singleSelect"
+                        [ngClass]="{ 'validation-border': form1.get('singleSelect')?.touched && form1.get('singleSelect')?.invalid }"
+                        [items]="cars" bindLabel="name" bindValue="id" [clearable]="true" placeholder="Select an Option"
+                        [(ngModel)]="selectedCar1">
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            <div class="custom-option">
+                                <span class="item-label">{{ item.name }}</span>
+                                <span *ngIf="selectedCar1 === item.id" class="check-icon">&#10003;</span>
+                            </div>
+                        </ng-template>
+                    </ng-select>
+                    <label for="weekInput" class="form-label">NG Single Select</label>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" class="input-validation"
+                    *ngIf="form1.get('singleSelect')?.touched && form1.get('singleSelect')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label">NG Multiselect</label>
+                <div class="input-container border-0">
+                    <ng-multiselect-dropdown id="ng-multiselect" class="form-input" formControlName="multiSelect"
+                        [ngClass]="{ 'validation-border': form1.get('multiSelect')?.touched && form1.get('multiSelect')?.invalid }"
+                        [placeholder]="'custom placeholder'" [settings]="dropdownSettings1" [data]="dropdownList1"
+                        [(ngModel)]="selectedItems1" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)">
+                    </ng-multiselect-dropdown>
+                    <label for="weekInput" class="form-label">NG Multi Select</label>
+                    <i class="input-icon multi"><img class="icon multi" src="assets/images/angle-down-svgrepo-com.svg"
+                            alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form1.get('multiSelect')?.touched && form1.get('multiSelect')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+            <!-- Time Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Time Input</label>
+                <div class="input-container">
+                    <input type="time" id="timeInput" class="form-input" formControlName="time"
+                        [ngClass]="{ 'validation-border': form1.get('time')?.touched && form1.get('time')?.invalid }"
+                        placeholder=" " />
+                    <label for="weekInput" class="form-label">Time Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/time-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" *ngIf="form1.get('time')?.touched && form1.get('time')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <!-- Datetime-local Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Date Time Local</label>
+                <div class="input-container">
+                    <input type="datetime-local" id="datetimeInput" class="form-input" formControlName="dateTimeLocal"
+                        [ngClass]="{ 'validation-border': form1.get('dateTimeLocal')?.touched && form1.get('dateTimeLocal')?.invalid }"
+                        placeholder=" " />
+                    <label for="weekInput" class="form-label">Date Time Local</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form1.get('dateTimeLocal')?.touched && form1.get('dateTimeLocal')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <!-- Month Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Month Input</label>
+                <div class="input-container">
+                    <input type="month" id="monthInput" class="form-input" formControlName="month"
+                        [ngClass]="{ 'validation-border': form1.get('month')?.touched && form1.get('month')?.invalid }"
+                        placeholder=" " />
+                    <label for="weekInput" class="form-label">Month Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form1.get('month')?.touched && form1.get('month')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <!-- Week Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Week Input</label>
+                <div class="input-container">
+                    <input type="week" id="weekInput" class="form-input" formControlName="week"
+                        [ngClass]="{ 'validation-border': form1.get('week')?.touched && form1.get('week')?.invalid }"
+                        placeholder=" " />
+                    <label for="weekInput" class="form-label">Week Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" *ngIf="form1.get('week')?.touched && form1.get('week')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <div>
+                <label class="default-theme-label normal">Check box</label>
+                <div class="input-container" formGroupName="checkboxGroup">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" formControlName="checkbox3" id="checkbox3" />
+                        <label class="form-check-label" for="checkbox3">Checkbox 3</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" formControlName="checkbox4" id="checkbox4" />
+                        <label class="form-check-label" for="checkbox4">Checkbox 4</label>
+                    </div>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label class="input-validation" *ngIf="checkboxGroupInvalid1">This field is required
+                    <span>*</span>
+                </label>
+            </div>
+
+            <div>
+                <label class="default-theme-label normal">Radio buttons</label>
+                <div class="input-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" formControlName="radioOption2" id="radio3"
+                            value="option1" />
+                        <label class="form-check-label" for="radio3">Radio 1</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" formControlName="radioOption2" id="radio4"
+                            value="option2" />
+                        <label class="form-check-label" for="radio4">Radio 2</label>
+                    </div>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label class="input-validation"
+                    *ngIf="form1.get('radioOption2')?.touched && form1.get('radioOption2')?.invalid">
+                    This field is required <span>*</span>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Submit Form</button>
+        </form>
     </div>
 </div>
 
@@ -588,265 +710,367 @@
     <h4 style="text-align: center; margin-bottom: 54px">
         Inner floating label theme
     </h4>
-    <div style="display: flex; flex-direction: column; gap: 44px"
-        class="form-group inside-floating-theme tooltip-top-right">
-        <div>
-            <label for="input1" class="default-theme-label">User</label>
-            <div class="input-container">
-                <input id="input2" type="text" class="form-input" placeholder=" " />
-                <label for="input2" class="form-label">User</label>
-                <i class="input-icon"><img class="icon" src="assets/images/feather-icon.png" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+    <div class="form-group inside-floating-theme tooltip-top-right">
+        <form [formGroup]="form2" (ngSubmit)="onSubmit2()" style="display: flex; flex-direction: column; gap: 30px" novalidate>
+            <div>
+                <label for="input1" class="default-theme-label">User</label>
+                <div class="input-container">
+                    <input id="input2" type="text" class="form-input" formControlName="user"
+                        [ngClass]="{'validation-border-bottom': form2.get('user')?.touched && form2.get('user')?.invalid }"
+                        placeholder=" " />
+                    <label for="input2" class="form-label">User</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/feather-icon.png" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form2.get('user')?.touched && form2.get('user')?.invalid">This field is required
+                    <span>*</span>
+                </label>
             </div>
-        </div>
 
-        <div>
-            <label for="input1" class="default-theme-label">Choose File</label>
-            <div class="input-container">
-                <input id="input2" type="file" class="form-input  " placeholder=" " />
-                <label for="input2" class="form-label">Choose File</label>
-                <i class="input-icon"><img class="icon" src="assets/images/file-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+            <div>
+                <label for="input1" class="default-theme-label">Choose File</label>
+                <div class="input-container">
+                    <input id="input2" type="file" class="form-input" formControlName="file"
+                    [ngClass]="{'validation-border-bottom': form2.get('file')?.touched && form2.get('file')?.invalid }" placeholder=" " />
+                    <label for="input2" class="form-label">Choose File</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/file-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" *ngIf="form2.get('file')?.touched && form2.get('file')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
             </div>
-        </div>
-        <div>
-            <label for="input1" class="default-theme-label">Number Input</label>
-            <div class="input-container">
-                <input id="input2" type="number" class="form-input" placeholder=" " />
-                <label for="input2" class="form-label">Number</label>
-                <i class="input-icon"><img class="icon" src="assets/images/number-input-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+            <div>
+                <label for="input1" class="default-theme-label">Number Input</label>
+                <div class="input-container">
+                    <input id="input2" type="number" class="form-input" formControlName="number"
+                    [ngClass]="{'validation-border-bottom': form2.get('number')?.touched && form2.get('number')?.invalid }" placeholder=" " />
+                    <label for="input2" class="form-label">Number</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/number-input-svgrepo-com.svg"
+                            alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form2.get('number')?.touched && form2.get('number')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
             </div>
-        </div>
-        <div>
-            <label for="input1" class="default-theme-label">Date Range Picker</label>
-            <div class="input-container">
-                <input class="form-input" id="input2" type="text" name="datetimes" value="10/24/1984" />
-                <label for="weekInput" class="form-label">Date Range Picker</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+            <div>
+                <label for="input1" class="default-theme-label">Date Range Picker</label>
+                <div class="input-container">
+                    <input class="form-input" id="input2" type="text"  formControlName="dateRange"
+                    [ngClass]="{'validation-border-bottom': form2.get('dateRange')?.touched && form2.get('dateRange')?.invalid }" name="datetimes" value="10/24/1984" />
+                    <label for="weekInput" class="form-label">Date Range Picker</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                *ngIf="form2.get('dateRange')?.touched && form2.get('dateRange')?.invalid">
+                <span>This field is required <span>*</span></span>
+            </label>
             </div>
-        </div>
 
-        <div>
-            <label for="input1" class="default-theme-label">Date Time Picker</label>
-            <div class="input-container">
-                <input class="form-input" id="datetimepicker3" type="text" value="10/24/1984" />
-                <label for="weekInput" class="form-label">Date Time Picker</label>
-                <i class="input-icon"><img class="icon" src="assets/images/i-schedule-school-date-time-svgrepo-com.svg"
+            <div>
+                <label for="input1" class="default-theme-label">Date Time Picker</label>
+                <div class="input-container">
+                    <input class="form-input" id="datetimepicker3" formControlName="dateTime"
+                    [ngClass]="{'validation-border-bottom': form2.get('dateTime')?.touched && form2.get('dateTime')?.invalid }" type="text" value="10/24/1984" />
+                    <label for="weekInput" class="form-label">Date Time Picker</label>
+                    <i class="input-icon"><img class="icon"
+                            src="assets/images/i-schedule-school-date-time-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form2.get('dateTime')?.touched && form2.get('dateTime')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+            <!-- Textarea -->
+            <div>
+                <label for="input1" class="default-theme-label">Text Area</label>
+                <div class="input-container">
+                    <textarea class="form-input" formControlName="textarea"
+                    [ngClass]="{'validation-border-bottom': form2.get('textarea')?.touched && form2.get('textarea')?.invalid }" placeholder="" rows="3"></textarea>
+                    <label for="weekInput" class="form-label">Text Area</label>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form2.get('textarea')?.touched && form2.get('textarea')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label">Select</label>
+                <div class="input-container">
+                    <select  class="form-input custom-select" formControlName="select"
+                    [ngClass]="{ 'validation-border-bottom': form2.get('select')?.touched && form2.get('select')?.invalid }" name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                      </select>
+                    <label for="weekInput" class="form-label">Select</label>
+                    <i class="input-icon multi"><img class="icon multi" src="assets/images/angle-down-svgrepo-com.svg"
                         alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-        <!-- Textarea -->
-        <div>
-            <label for="input1" class="default-theme-label">Text Area</label>
-            <div class="input-container">
-                <textarea class="form-input" placeholder="" rows="3"></textarea>
-                <label for="weekInput" class="form-label">Text Area</label>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-
-        <!-- URL Input -->
-        <div>
-            <label for="input1" class="default-theme-label">URL Input</label>
-            <div class="input-container">
-                <input type="url" class="form-input" placeholder="" />
-                <label for="weekInput" class="form-label">URL Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/file-url-1759-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-        <!-- Telephone Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Telephone input</label>
-            <div class="input-container">
-                <input type="tel" id="telInput" class="form-input" placeholder=" " />
-                <label for="weekInput" class="form-label">Telephone input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/telephone-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-
-        <!-- Search Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Search Input</label>
-            <div class="input-container">
-                <input type="search" id="searchInput" class="form-input" placeholder=" " />
-                <label for="weekInput" class="form-label">Search Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/search-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-
-        <!-- Date Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Date Input</label>
-            <div class="input-container">
-                <input type="date" id="dateInput" class="form-input  " placeholder=" " />
-                <label for="weekInput" class="form-label">Date Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-
-        <div>
-            <label for="input1" class="default-theme-label">NG Select</label>
-            <div class="input-container">
-                <ng-select id="ng-select" class="form-input border-0" [items]="cars" bindLabel="name" bindValue="id"
-                    [clearable]="true" placeholder="Select an Option" [(ngModel)]="selectedCar2"
-                    [ngModelOptions]="{ standalone: true }">
-                    <ng-template ng-option-tmp let-item="item" let-index="index">
-                        <div class="custom-option">
-                            <span class="item-label">{{ item.name }}</span>
-                            <span *ngIf="selectedCar2 === item.id" class="check-icon">&#10003;</span>
-                        </div>
-                    </ng-template>
-                </ng-select>
-                <label for="weekInput" class="form-label">Single Select</label>
-                <!-- <i class="input-icon">🔽</i> -->
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-
-        <div>
-            <label for="input1" class="default-theme-label">NG Multiselect</label>
-            <div class="input-container">
-                <ng-multiselect-dropdown id="ng-multiselect" class="form-input border-0"
-                    [placeholder]="'custom placeholder'" [settings]="dropdownSettings2" [data]="dropdownList2"
-                    [(ngModel)]="selectedItems2" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
-                    [ngModelOptions]="{ standalone: true }">
-                </ng-multiselect-dropdown>
-                <label for="weekInput" class="form-label">Multi Select</label>
-                <i class="input-icon multi"><img class="icon multi" src="assets/images/angle-down-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-        <!-- Time Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Time Input</label>
-            <div class="input-container">
-                <input type="time" id="timeInput" class="form-input  " placeholder=" " />
-                <label for="weekInput" class="form-label">Time Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/time-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-
-        <!-- Datetime-local Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Date Time Local</label>
-            <div class="input-container">
-                <input type="datetime-local" id="datetimeInput" class="form-input  " placeholder=" " />
-                <label for="weekInput" class="form-label">Date Time Local</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-
-        <!-- Month Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Month Input</label>
-            <div class="input-container">
-                <input type="month" id="monthInput" class="form-input  " placeholder=" " />
-                <label for="weekInput" class="form-label">Month Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-
-        <!-- Week Input -->
-        <div>
-            <label for="input1" class="default-theme-label">Week Input</label>
-            <div class="input-container">
-                <input type="week" id="weekInput" class="form-input  " placeholder=" " />
-                <label for="weekInput" class="form-label">Week Input</label>
-                <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
-            </div>
-        </div>
-
-        <div>
-            <label for="input1" class="default-theme-label">Check box</label>
-            <div class="input-container">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Checked checkbox
-                    </label>
-                </div>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
+                <label for="" class="input-validation"
+                    *ngIf="form2.get('select')?.touched && form2.get('select')?.invalid">This field is required
+                    <span>*</span></label>
             </div>
-            <label for="" class="input-validation">
+
+            <!-- URL Input -->
+            <div>
+                <label for="input1" class="default-theme-label">URL Input</label>
+                <div class="input-container">
+                    <input type="url" class="form-input" formControlName="url"
+                    [ngClass]="{'validation-border-bottom': form2.get('url')?.touched && form2.get('url')?.invalid }" placeholder="" />
+                    <label for="weekInput" class="form-label">URL Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/file-url-1759-svgrepo-com.svg"
+                            alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" *ngIf="form2.get('url')?.touched && form2.get('url')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+            <!-- Telephone Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Telephone input</label>
+                <div class="input-container">
+                    <input type="tel" id="telInput" class="form-input" formControlName="tel"
+                    [ngClass]="{'validation-border-bottom': form2.get('tel')?.touched && form2.get('tel')?.invalid }" placeholder=" " />
+                    <label for="weekInput" class="form-label">Telephone input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/telephone-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" class="input-validation"
+                    *ngIf="form2.get('tel')?.touched && form2.get('tel')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <!-- Search Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Search Input</label>
+                <div class="input-container">
+                    <input type="search" id="searchInput" class="form-input" formControlName="search"
+                    [ngClass]="{'validation-border-bottom': form2.get('search')?.touched && form2.get('search')?.invalid }" placeholder=" " />
+                    <label for="weekInput" class="form-label">Search Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/search-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                *ngIf="form2.get('search')?.touched && form2.get('search')?.invalid">
                 <span>This field is required <span>*</span></span>
             </label>
-        </div>
-
-        <div>
-            <label for="input1" class="default-theme-label">Radio buttons</label>
-            <div class="input-container">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Default radio
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Default checked radio
-                    </label>
-                </div>
-                <span class="tooltip-icon" data-tooltip="This is a tooltip">
-                    <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
-                </span>
             </div>
-            <label for="" class="input-validation">
-                <span>This field is required <span>*</span></span>
-            </label>
-        </div>
+
+            <!-- Date Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Date Input</label>
+                <div class="input-container">
+                    <input type="date" id="dateInput" class="form-input" formControlName="date"
+                    [ngClass]="{'validation-border-bottom': form2.get('date')?.touched && form2.get('date')?.invalid }" placeholder=" " />
+                    <label for="weekInput" class="form-label">Date Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" *ngIf="form2.get('date')?.touched && form2.get('date')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label">NG Select</label>
+                <div class="input-container">
+                    <ng-select id="ng-select" class="form-input border-0" formControlName="singleSelect"
+                    [ngClass]="{'validation-border-bottom': form2.get('singleSelect')?.touched && form2.get('singleSelect')?.invalid }" [items]="cars" bindLabel="name" bindValue="id"
+                        [clearable]="true" placeholder="Select an Option" [(ngModel)]="selectedCar2">
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            <div class="custom-option">
+                                <span class="item-label">{{ item.name }}</span>
+                                <span *ngIf="selectedCar2 === item.id" class="check-icon">&#10003;</span>
+                            </div>
+                        </ng-template>
+                    </ng-select>
+                    <label for="weekInput" class="form-label">NG Single Select</label>
+                    <!-- <i class="input-icon">🔽</i> -->
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" class="input-validation"
+                    *ngIf="form2.get('singleSelect')?.touched && form2.get('singleSelect')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label">NG Multiselect</label>
+                <div class="input-container">
+                    <ng-multiselect-dropdown id="ng-multiselect" class="form-input border-0" formControlName="multiSelect"
+                    [ngClass]="{'validation-border-bottom': form2.get('multiSelect')?.touched && form2.get('multiSelect')?.invalid }"
+                        [placeholder]="'custom placeholder'" [settings]="dropdownSettings2" [data]="dropdownList2"
+                        [(ngModel)]="selectedItems2" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)">
+                    </ng-multiselect-dropdown>
+                    <label for="weekInput" class="form-label">NG Multi Select</label>
+                    <i class="input-icon multi"><img class="icon multi" src="assets/images/angle-down-svgrepo-com.svg"
+                            alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form2.get('multiSelect')?.touched && form2.get('multiSelect')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+            <!-- Time Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Time Input</label>
+                <div class="input-container">
+                    <input type="time" id="timeInput" class="form-input" formControlName="time"
+                    [ngClass]="{'validation-border-bottom': form2.get('time')?.touched && form2.get('time')?.invalid }" placeholder=" " />
+                    <label for="weekInput" class="form-label">Time Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/time-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" *ngIf="form2.get('time')?.touched && form2.get('time')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <!-- Datetime-local Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Date Time Local</label>
+                <div class="input-container">
+                    <input type="datetime-local" id="datetimeInput" class="form-input" formControlName="dateTimeLocal"
+                    [ngClass]="{'validation-border-bottom': form2.get('dateTimeLocal')?.touched && form2.get('dateTimeLocal')?.invalid }" placeholder=" " />
+                    <label for="weekInput" class="form-label">Date Time Local</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form2.get('dateTimeLocal')?.touched && form2.get('dateTimeLocal')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <!-- Month Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Month Input</label>
+                <div class="input-container">
+                    <input type="month" id="monthInput" class="form-input" formControlName="month"
+                    [ngClass]="{'validation-border-bottom': form2.get('month')?.touched && form2.get('month')?.invalid }" placeholder=" " />
+                    <label for="weekInput" class="form-label">Month Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation"
+                    *ngIf="form2.get('month')?.touched && form2.get('month')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <!-- Week Input -->
+            <div>
+                <label for="input1" class="default-theme-label">Week Input</label>
+                <div class="input-container">
+                    <input type="week" id="weekInput" class="form-input" formControlName="week"
+                    [ngClass]="{'validation-border-bottom': form2.get('week')?.touched && form2.get('week')?.invalid }" placeholder=" " />
+                    <label for="weekInput" class="form-label">Week Input</label>
+                    <i class="input-icon"><img class="icon" src="assets/images/date-range-svgrepo-com.svg" alt="" /></i>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label for="" class="input-validation" *ngIf="form2.get('week')?.touched && form2.get('week')?.invalid">
+                    <span>This field is required <span>*</span></span>
+                </label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label normal">Check box</label>
+                <div class="input-container" formGroupName="checkboxGroup">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value=""formControlName="checkbox5" id="checkbox5">
+                        <label class="form-check-label" for="checkbox5">
+                            Default checkbox
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" formControlName="checkbox6" value="" id="checkbox6" checked>
+                        <label class="form-check-label" for="checkbox6">
+                            Checked checkbox
+                        </label>
+                    </div>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label class="input-validation" *ngIf="checkboxGroupInvalid2">This field is required
+                    <span>*</span>
+                </label>
+            </div>
+
+            <div>
+                <label for="input1" class="default-theme-label normal">Radio buttons</label>
+                <div class="input-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioOption3" formControlName="radioOption3" id="radio5">
+                        <label class="form-check-label" for="radio5">
+                            Default radio
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioOption3" formControlName="radioOption3" id="radio6"
+                            checked>
+                        <label class="form-check-label" for="radio6">
+                            Default checked radio
+                        </label>
+                    </div>
+                    <span class="tooltip-icon" data-tooltip="This is a tooltip">
+                        <img class="icon-type" src="assets/images/question-circle-icon.svg" alt="" />
+                    </span>
+                </div>
+                <label class="input-validation"
+                    *ngIf="form2.get('radioOption3')?.touched && form2.get('radioOption3')?.invalid">
+                    This field is required <span>*</span>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Submit Form</button>
+        </form>
     </div>
 </div>
-
-

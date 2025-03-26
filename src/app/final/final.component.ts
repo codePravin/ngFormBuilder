@@ -14,7 +14,7 @@ interface DropdownItem {
 }
 @Component({
   selector: 'app-final',
-  standalone:true,
+  standalone: true,
   imports: [NgMultiSelectDropDownModule, FormsModule, CommonModule, ReactiveFormsModule, NgSelectModule],
   templateUrl: './final.component.html',
   styleUrl: './final.component.css'
@@ -35,6 +35,8 @@ export class FinalComponent implements OnInit, AfterViewInit {
   selectedItems2: DropdownItem[] = [];
   dropdownSettings2: IDropdownSettings = {};
 
+
+
   model = {
     firstName: '',
     lastName: '',
@@ -53,29 +55,12 @@ export class FinalComponent implements OnInit, AfterViewInit {
     { id: 4, name: 'Audi' },
   ];
 
-  form: FormGroup;
+  form!: FormGroup;
+  form1!: FormGroup;
+  form2!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      textInput: ['', Validators.required],
-      emailInput: ['', [Validators.required, Validators.email]],
-      passwordInput: ['', Validators.required],
-      numberInput: [null, Validators.required],
-      urlInput: ['', Validators.required],
-      telInput: ['', Validators.required],
-      searchInput: [''],
-      dateInput: [''],
-      timeInput: [''],
-      datetimeInput: [''],
-      monthInput: [''],
-      weekInput: [''],
-      textareaInput: [''],
-      fileInput: [null],
-      selectInput: ['', Validators.required],
-      multiSelect: [[], Validators.required],
-      hiddenInput: ['hiddenValue'],
-    });
-  }
+  constructor(private fb: FormBuilder) { }
+
   ngAfterViewInit() {
     setTimeout(() => {
 
@@ -93,7 +78,86 @@ export class FinalComponent implements OnInit, AfterViewInit {
     }, 500);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      user: ['', Validators.required],
+      file: [null, Validators.required],
+      number: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      dateRange: ['', Validators.required],
+      dateTime: ['', Validators.required],
+      textarea: ['', Validators.required],
+      url: ['', [Validators.required, Validators.pattern('https?://.+')]],
+      tel: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      search: ['', Validators.required],
+      date: ['', Validators.required],
+      time: ['', Validators.required],
+      dateTimeLocal: ['', Validators.required],
+      month: ['', Validators.required],
+      week: ['', Validators.required],
+      select: [null, Validators.required],
+      multi: [[], Validators.required],
+      singleSelect: [null, Validators.required],
+      multiSelect: [[], Validators.required],
+      checkboxGroup: this.fb.group({
+        checkbox1: [false],
+        checkbox2: [false]
+      }),
+      radioOption1: [null, Validators.required]
+    });
+
+    this.form1 = this.fb.group({
+      user: ['', Validators.required],
+      file: [null, Validators.required],
+      number: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      dateRange: ['', Validators.required],
+      dateTime: ['', Validators.required],
+      textarea: ['', Validators.required],
+      url: ['', [Validators.required, Validators.pattern('https?://.+')]],
+      tel: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      search: ['', Validators.required],
+      date: ['', Validators.required],
+      time: ['', Validators.required],
+      dateTimeLocal: ['', Validators.required],
+      month: ['', Validators.required],
+      week: ['', Validators.required],
+      select: [null, Validators.required],
+      multi: [[], Validators.required],
+      singleSelect: [null, Validators.required],
+      multiSelect: [[], Validators.required],
+      checkboxGroup: this.fb.group({
+        checkbox3: [false],
+        checkbox4: [false]
+      }),
+      radioOption2: [null, Validators.required]
+    });
+
+    this.form2 = this.fb.group({
+      user: ['', Validators.required],
+      file: [null, Validators.required],
+      number: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      dateRange: ['', Validators.required],
+      dateTime: ['', Validators.required],
+      textarea: ['', Validators.required],
+      url: ['', [Validators.required, Validators.pattern('https?://.+')]],
+      tel: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      search: ['', Validators.required],
+      date: ['', Validators.required],
+      time: ['', Validators.required],
+      dateTimeLocal: ['', Validators.required],
+      month: ['', Validators.required],
+      week: ['', Validators.required],
+      select: [null, Validators.required],
+      multi: [[], Validators.required],
+      singleSelect: [null, Validators.required],
+      multiSelect: [[], Validators.required],
+      checkboxGroup: this.fb.group({
+        checkbox5: [false],
+        checkbox6: [false]
+      }),
+      radioOption3: [null, Validators.required]
+    });
+
+
     this.dropdownList = [
       { item_id: 1, item_text: 'Mumbai' },
       { item_id: 2, item_text: 'Bangalore' },
@@ -161,12 +225,80 @@ export class FinalComponent implements OnInit, AfterViewInit {
     };
   }
 
-  onSubmit(): void {
-    if (this.form.valid) {
-      console.log('Form Submitted', this.form.value);
-    } else {
-      console.log('Form is invalid');
+  onFileChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files?.length) {
+      this.form.patchValue({ file: input.files[0] });
     }
+  }
+
+
+  get checkboxGroupInvalid(): boolean {
+    const group = this.form.get('checkboxGroup') as FormGroup;
+    const anyChecked = Object.values(group.controls).some(control => control.value);
+    return !anyChecked && group.touched;
+  }
+
+  get checkboxGroupInvalid1(): boolean {
+    const group = this.form1.get('checkboxGroup') as FormGroup;
+    const anyChecked = Object.values(group.controls).some(control => control.value);
+    return !anyChecked && group.touched;
+  }
+
+  get checkboxGroupInvalid2(): boolean {
+    const group = this.form2.get('checkboxGroup') as FormGroup;
+    const anyChecked = Object.values(group.controls).some(control => control.value);
+    return !anyChecked && group.touched;
+  }
+
+  onSubmit(): void {
+    if (!this.isCheckboxValid()) {
+      this.form.get('checkboxGroup')?.markAllAsTouched();
+    }
+    if (this.form.valid && this.isCheckboxValid()) {
+      console.log('Form submitted!', this.form.value);
+    } else {
+      this.form.markAllAsTouched(); // This shows all validation errors
+    }
+  }
+
+  private isCheckboxValid(): boolean {
+    const group = this.form.get('checkboxGroup') as FormGroup;
+    return Object.values(group.controls).some(control => control.value);
+  }
+
+
+  onSubmit1(): void {
+    if (!this.isCheckboxValid1()) {
+      this.form1.get('checkboxGroup')?.markAllAsTouched();
+    }
+    if (this.form1.valid && this.isCheckboxValid1()) {
+      console.log('Form submitted!', this.form1.value);
+    } else {
+      this.form1.markAllAsTouched(); // This shows all validation errors
+    }
+  }
+
+  private isCheckboxValid1(): boolean {
+    const group = this.form1.get('checkboxGroup') as FormGroup;
+    return Object.values(group.controls).some(control => control.value);
+  }
+
+
+  onSubmit2(): void {
+    if (!this.isCheckboxValid2()) {
+      this.form2.get('checkboxGroup')?.markAllAsTouched();
+    }
+    if (this.form2.valid && this.isCheckboxValid2()) {
+      console.log('Form submitted!', this.form2.value);
+    } else {
+      this.form2.markAllAsTouched(); // This shows all validation errors
+    }
+  }
+
+  private isCheckboxValid2(): boolean {
+    const group = this.form2.get('checkboxGroup') as FormGroup;
+    return Object.values(group.controls).some(control => control.value);
   }
 
   onItemSelect(item: any) {
@@ -178,13 +310,5 @@ export class FinalComponent implements OnInit, AfterViewInit {
 
 
 
-
-  onFormSubmit(form: NgForm) {
-    if (form.valid) {
-      console.log('Form Submitted!', this.model);
-    } else {
-      console.log('Form Invalid');
-    }
-  }
 
 }
